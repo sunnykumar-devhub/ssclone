@@ -1,26 +1,59 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fafafa;
+  --foreground: #18181b;
+  --primary: #0a4a83; /* Premium SEBI Blue */
+  --primary-hover: #07355e;
+  --card-bg: rgba(255, 255, 255, 0.8);
+  --card-border: rgba(10, 74, 131, 0.1);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@theme {
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-card: var(--card-bg);
+  --color-card-border: var(--card-border);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  overflow-x: hidden;
+}
+
+/* Custom Premium Glassmorphic Card styles (Light Theme) */
+.glass-card {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(10, 74, 131, 0.08);
+  box-shadow: 0 4px 20px -2px rgba(10, 74, 131, 0.04);
+}
+
+.glass-card:hover {
+  border-color: rgba(10, 74, 131, 0.2);
+  box-shadow: 0 10px 30px -10px rgba(10, 74, 131, 0.12);
+}
+
+/* Modern Gradient Text */
+.gradient-text {
+  background: linear-gradient(135deg, #0a4a83 0%, #1e3a8a 50%, #0284c7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Animated Radial Glow for Light Theme */
+.blue-glow {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(10, 74, 131, 0.05) 0%, rgba(10, 74, 131, 0) 70%);
+  pointer-events: none;
 }
