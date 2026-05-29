@@ -1,44 +1,50 @@
 import React from "react";
 import Link from "next/link";
-import { Pin } from "lucide-react";
+import { Shield, Target, Heart, Scale, Calculator, Compass } from "lucide-react";
 
 export default function ServicesHome() {
   const planningSubServices = [
     {
       title: "RETIREMENT PLANNING",
       points: ["Estimate retirement needs.", "Create a diversified investment plan."],
+      icon: Shield,
     },
     {
       title: "GOAL-BASED PLANNING",
       points: ["Set clear, achievable financial goals.", "Create a tailored strategy for each goal."],
+      icon: Target,
     },
     {
       title: "INSURANCE PLANNING",
       points: ["Choose the right life insurance plan.", "Cover health-related risks."],
+      icon: Heart,
     },
     {
       title: "EMERGENCY FUND",
       points: ["Build a safety net for unexpected expenses.", "Preserve long-term investment plans."],
+      icon: Scale,
     },
     {
       title: "TAX PLANNING",
       points: ["Maximize savings through tax-efficient investments.", "Leverage available tax strategies."],
+      icon: Calculator,
     },
     {
       title: "RISK PROFILING",
       points: ["Assess your financial risk capacity.", "Create a portfolio tailored to your risk tolerance."],
+      icon: Compass,
     },
   ];
 
   return (
-    <section className="py-24 bg-white border-t border-zinc-200/50">
+    <section className="pt-12 pb-16 bg-white">
       <div className="max-w-7xl mx-auto px-6 md:px-12 text-center">
         {/* Section Title */}
         <div className="flex flex-col items-center mb-16">
-          <span className="text-sm font-black uppercase tracking-[0.15em] text-zinc-800">
+          <span className="text-xs font-black uppercase tracking-[0.2em] text-[#0a4a83]">
             Our Services
           </span>
-          <div className="w-full h-[1px] bg-zinc-200 mt-4" />
+          <div className="w-16 h-[3px] bg-[#0a4a83] mt-3.5 rounded-full" />
         </div>
 
         {/* 1. Personalized Financial Planning */}
@@ -55,32 +61,35 @@ export default function ServicesHome() {
 
           {/* Grid of 6 with centered boxes */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
-            {planningSubServices.map((sub, idx) => (
-              <div
-                key={idx}
-                className="rounded-xl p-8 bg-zinc-50 border border-zinc-200/80 shadow-sm flex flex-col items-center text-center justify-between gap-5 hover:shadow-md hover:border-[#0a4a83]/30 transition-all min-h-[250px]"
-              >
-                <div className="text-[#e11d48]">
-                  <Pin className="w-4 h-4 rotate-45 stroke-[2.5]" />
-                </div>
-                <h4 className="text-[12px] font-black text-zinc-900 tracking-wider">
-                  {sub.title}
-                </h4>
-                <ul className="flex flex-col gap-2.5 text-xs text-zinc-600 font-semibold leading-relaxed">
-                  {sub.points.map((pt, pIdx) => (
-                    <li key={pIdx} className="text-zinc-600 font-semibold">
-                      {pt}
-                    </li>
-                  ))}
-                </ul>
-                <Link
-                  href="/services"
-                  className="text-xs font-black text-[#0a4a83] hover:underline"
+            {planningSubServices.map((sub, idx) => {
+              const Icon = sub.icon;
+              return (
+                <div
+                  key={idx}
+                  className="rounded-xl p-8 bg-zinc-50 border border-zinc-200/80 shadow-sm flex flex-col items-center text-center justify-between gap-5 hover:shadow-md hover:border-[#0a4a83]/30 transition-all min-h-[250px]"
                 >
-                  Explore More...
-                </Link>
-              </div>
-            ))}
+                  <div className="text-[#0a4a83] w-10 h-10 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center shrink-0">
+                    <Icon className="w-5 h-5 stroke-[2]" />
+                  </div>
+                  <h4 className="text-[12px] font-black text-zinc-900 tracking-wider">
+                    {sub.title}
+                  </h4>
+                  <ul className="flex flex-col gap-2.5 text-xs text-zinc-600 font-semibold leading-relaxed">
+                    {sub.points.map((pt, pIdx) => (
+                      <li key={pIdx} className="text-zinc-600 font-semibold">
+                        {pt}
+                      </li>
+                    ))}
+                  </ul>
+                  <Link
+                    href="/services"
+                    className="text-xs font-black text-[#0a4a83] hover:underline"
+                  >
+                    Explore More...
+                  </Link>
+                </div>
+              );
+            })}
           </div>
         </div>
 

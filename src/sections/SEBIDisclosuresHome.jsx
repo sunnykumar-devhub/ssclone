@@ -26,14 +26,14 @@ export default function SEBIDisclosuresHome() {
   ];
 
   return (
-    <section className="py-24 bg-white border-t border-zinc-200/50 text-left">
-      <div className="max-w-4xl mx-auto px-6 md:px-12">
+    <section className="bg-white text-left">
+      <div className="max-w-4xl mx-auto px-6 md:px-12 pt-12 pb-16">
         {/* Title */}
         <div className="flex flex-col items-center mb-16">
-          <span className="text-sm font-black uppercase tracking-[0.15em] text-zinc-800">
+          <span className="text-xs font-black uppercase tracking-[0.2em] text-[#0a4a83]">
             SEBI Disclosures
           </span>
-          <div className="w-full h-[1px] bg-[#0a4a83]/30 mt-4" />
+          <div className="w-16 h-[3px] bg-[#0a4a83] mt-3.5 rounded-full" />
         </div>
 
         {/* Narrative Paragraph */}

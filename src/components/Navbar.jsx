@@ -1,12 +1,14 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, ArrowUpRight } from "lucide-react";
+import { Menu, X, ArrowUpRight, ChevronDown } from "lucide-react";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -21,12 +23,30 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Close dropdown on click outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsDropdownOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
   const navLinks = [
     { name: "Home", href: "/" },
     { name: "About Me", href: "/about" },
     { name: "Services", href: "/services" },
-    { name: "FAQs", href: "/contact#faqs" },
-    { name: "SEBI Disclosures", href: "/disclosures" },
+    { name: "FAQs", href: "/faqs" },
+    {
+      name: "SEBI Disclosures",
+      hasSubmenu: true,
+      submenu: [
+        { name: "SEBI Disclosures", href: "/disclosures" },
+        { name: "Beware of Imposters", href: "/imposters" },
+      ],
+    },
     { name: "Contact Me", href: "/contact" },
   ];
 
@@ -39,20 +59,63 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
-        {/* Brand Logo - Styled strictly matching user uploaded image */}
+        {/* Brand Logo */}
         <Link href="/" className="flex flex-col select-none group shrink-0">
-          <span className="font-sans font-extrabold tracking-wide text-2xl text-[#0a4a83] leading-none">
+          <span className="font-sans font-extrabold tracking-wide text-xl sm:text-2xl text-[#0a4a83] leading-none">
             SUJAN SINGH
           </span>
-          <span className="font-sans font-bold tracking-[0.08em] text-[8.5px] text-[#0a4a83] uppercase mt-1">
+          <span className="font-sans font-bold tracking-[0.08em] text-[7px] sm:text-[8.5px] text-[#0a4a83] uppercase mt-1">
             SEBI Reg NO - INA000020864
           </span>
         </Link>
 
-        {/* Desktop Menu - Styled strictly matching user uploaded image */}
+        {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-8 lg:gap-10">
           {navLinks.map((link) => {
-            const isActive = pathname === link.href || (link.href.includes("#") && pathname === "/contact" && typeof window !== "undefined" && window.location.hash === "#faqs");
+            if (link.hasSubmenu) {
+              const isSubActive = link.submenu.some((sub) => pathname === sub.href);
+              return (
+                <div
+                  key={link.name}
+                  ref={dropdownRef}
+                  className="relative"
+                  onMouseEnter={() => setIsDropdownOpen(true)}
+                  onMouseLeave={() => setIsDropdownOpen(false)}
+                >
+                  <button
+                    onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                    className={`flex items-center gap-1 text-[15px] font-semibold tracking-wide transition-colors cursor-pointer ${
+                      isSubActive ? "text-[#0a4a83]" : "text-zinc-800 hover:text-[#0a4a83]"
+                    }`}
+                  >
+                    {link.name}
+                    <ChevronDown className={`w-4 h-4 transition-transform duration-250 ${isDropdownOpen ? "rotate-180" : ""}`} />
+                  </button>
+
+                  {/* Dropdown Menu */}
+                  {isDropdownOpen && (
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 w-56 pt-2.5 z-50 animate-fade-in">
+                      <div className="rounded-xl bg-white border border-zinc-200 shadow-lg py-2 flex flex-col">
+                        {link.submenu.map((sub) => (
+                          <Link
+                            key={sub.name}
+                            href={sub.href}
+                            onClick={() => setIsDropdownOpen(false)}
+                            className={`px-4 py-2.5 text-sm font-semibold tracking-wide text-left hover:bg-zinc-50 transition-colors ${
+                              pathname === sub.href ? "text-[#0a4a83] bg-zinc-50/50" : "text-zinc-700 hover:text-[#0a4a83]"
+                            }`}
+                          >
+                            {sub.name}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              );
+            }
+
+            const isActive = pathname === link.href;
             return (
               <Link
                 key={link.name}
@@ -90,23 +153,49 @@ export default function Navbar() {
 
       {/* Mobile Drawer */}
       {isOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-white border-b border-zinc-200 px-8 py-6 flex flex-col gap-5 shadow-lg">
-          {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              href={link.href}
-              onClick={() => setIsOpen(false)}
-              className={`text-base font-bold ${
-                pathname === link.href ? "text-[#0a4a83]" : "text-zinc-800"
-              }`}
-            >
-              {link.name}
-            </Link>
-          ))}
+        <div className="md:hidden absolute top-full left-0 w-full bg-white/98 backdrop-blur-lg border-b border-zinc-200/80 px-8 py-7 flex flex-col gap-6 shadow-xl overflow-y-auto max-h-[85vh] animate-fade-in z-50">
+          {navLinks.map((link) => {
+            if (link.hasSubmenu) {
+              return (
+                <div key={link.name} className="flex flex-col gap-3 pb-2 border-b border-zinc-100/60">
+                  <span className="text-[10px] font-black text-zinc-400 uppercase tracking-widest pl-1">
+                    {link.name}
+                  </span>
+                  <div className="flex flex-col gap-3 pl-3 border-l-2 border-[#0a4a83]/20">
+                    {link.submenu.map((sub) => (
+                      <Link
+                        key={sub.name}
+                        href={sub.href}
+                        onClick={() => setIsOpen(false)}
+                        className={`text-sm font-extrabold tracking-wide ${
+                          pathname === sub.href ? "text-[#0a4a83]" : "text-zinc-800 hover:text-[#0a4a83]"
+                        }`}
+                      >
+                        {sub.name}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              );
+            }
+
+            return (
+              <Link
+                key={link.name}
+                href={link.href}
+                onClick={() => setIsOpen(false)}
+                className={`text-sm font-extrabold tracking-wide pb-2 border-b border-zinc-100/60 ${
+                  pathname === link.href ? "text-[#0a4a83]" : "text-zinc-800 hover:text-[#0a4a83]"
+                }`}
+              >
+                {link.name}
+              </Link>
+            );
+          })}
           <Link
             href="/contact"
             onClick={() => setIsOpen(false)}
-            className="flex items-center justify-center gap-2 bg-[#0a4a83] text-white py-3 rounded-lg text-sm font-bold uppercase tracking-wider"
+            className="flex items-center justify-center gap-2 bg-[#0a4a83] hover:bg-[#07355e] text-white py-3.5 rounded-xl text-xs font-black uppercase tracking-wider shadow-md active:scale-[0.99] transition-all mt-2"
           >
             Get Consultation
             <ArrowUpRight className="w-4 h-4 stroke-[2.5]" />

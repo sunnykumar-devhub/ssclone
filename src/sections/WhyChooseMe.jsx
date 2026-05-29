@@ -42,7 +42,7 @@ export default function WhyChooseMe() {
   ];
 
   return (
-    <section className="py-24 bg-white border-t border-zinc-200/50">
+    <section className="pt-12 pb-16 bg-white">
       <div className="max-w-7xl mx-auto px-6 md:px-12 text-center">
         {/* Why Choose Me Main Header */}
         <div className="flex items-center justify-center gap-4 mb-6">
