@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import WhyChooseMe from "@/sections/WhyChooseMe";
 import LetsGetStarted from "@/sections/LetsGetStarted";
+import { Award, Users, ShieldCheck, HeartHandshake, CheckCircle2, BookOpen, Landmark } from "lucide-react";
 
 export const metadata = {
   title: "About Me - Sujan Singh",
@@ -9,159 +10,203 @@ export const metadata = {
 };
 
 export default function About() {
-  const RIAFoci = [
-    "Clearly define and prioritise their financial goals",
-    "Create tailored investment and tax-efficient strategies",
-    "Build a secure retirement roadmap and protect their families through proper insurance planning",
-    "Regularly review and adapt plans as life circumstances change",
+  const RIAPromises = [
+    {
+      title: "Clearly define and prioritise financial goals",
+      desc: "Helping you set clear timelines and realistic targets for your life's major milestones.",
+    },
+    {
+      title: "Create tailored investment & tax-efficient strategies",
+      desc: "Designing customized models that optimize returns while legally minimizing tax burdens.",
+    },
+    {
+      title: "Build secure retirement roadmaps & proper insurance coverage",
+      desc: "Creating life-long income security and safeguarding your family against unexpected risks.",
+    },
+    {
+      title: "Regularly review and adapt plans as life evolves",
+      desc: "Ensuring your financial blueprint adjusts dynamically with career, market, and life stage changes.",
+    },
   ];
 
-  const institutions = [
-    <span>The <strong className="text-zinc-950 font-extrabold">Indian Army</strong></span>,
-    <span>The <strong className="text-zinc-950 font-extrabold">Indian Air Force</strong></span>,
-    <strong className="text-zinc-950 font-extrabold">ONGC</strong>,
-    <span>The <strong className="text-zinc-950 font-extrabold">Press Information Bureau (PIB)</strong></span>,
-    <span>Numerous <strong className="text-zinc-950 font-extrabold">academic institutions</strong> across the country</span>,
+  const credentials = [
+    { label: "Advisory Status", val: "SEBI Registered RIA" },
+    { label: "Experience", val: "7+ Years (Since 2016)" },
+    { label: "Compensation", val: "100% Fee-Only Fiduciary" },
+    { label: "Conflict of Interest", val: "0% Commission / Incentives" },
   ];
 
   return (
     <div className="bg-zinc-50 min-h-screen pt-8 pb-24 font-sans text-zinc-700">
-      {/* 1. Main Bio Section */}
-      <div className="max-w-7xl mx-auto px-6 md:px-12 mb-16 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-        {/* Left Column - Large smiling portrait photo of Sujan */}
-        <div className="lg:col-span-5 flex justify-center">
-          <div className="relative w-full max-w-[420px] aspect-[3/4] rounded-2xl overflow-hidden shadow-md border border-zinc-200/80 bg-white p-2">
-            <div className="relative w-full h-full rounded-xl overflow-hidden">
+      {/* 1. Profile Hero Section */}
+      <div className="max-w-7xl mx-auto px-6 md:px-12 mb-20 pt-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          {/* Left Column - Large Premium Portrait with Offset Backing */}
+          <div className="lg:col-span-5 flex justify-center relative">
+            <div className="absolute -top-6 -left-6 w-80 h-80 rounded-full bg-blue-50/70 blur-2xl -z-10 pointer-events-none" />
+            <div className="absolute -bottom-8 -right-8 w-72 h-72 rounded-full bg-blue-100/50 blur-3xl -z-10 pointer-events-none" />
+            
+            {/* Offset accent border */}
+            <div className="absolute inset-0 max-w-[380px] aspect-[3/4] rounded-3xl border-2 border-[#0a4a83]/15 translate-x-4 translate-y-4 -z-10 hidden sm:block" />
+
+            {/* Main Portrait */}
+            <div className="relative w-full max-w-[380px] aspect-[3/4] overflow-hidden rounded-3xl border-4 border-white shadow-xl bg-zinc-50 group">
               <Image
                 src="/sujan_about.jpg"
-                alt="Sujan Singh checkered blazer sitting"
+                alt="Sujan Singh checkered blazer sitting portrait"
                 fill
                 priority
-                className="object-cover object-top hover:scale-[1.02] transition-transform duration-500"
+                className="object-cover object-top hover:scale-[1.03] transition-transform duration-500"
               />
+              
+              {/* Gold Verification Badge */}
+              <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md border border-white/50 rounded-2xl p-3.5 shadow-md flex items-center gap-3">
+                <div className="w-9 h-9 rounded-lg bg-[#0a4a83] flex items-center justify-center text-white shrink-0">
+                  <ShieldCheck className="w-5 h-5 stroke-[2]" />
+                </div>
+                <div className="text-left">
+                  <p className="text-[10px] font-black text-zinc-400 uppercase tracking-wider leading-none">Registered Fiduciary</p>
+                  <p className="text-[11px] font-black text-[#0a4a83] leading-tight">SEBI Reg No. INA000018593</p>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* Right Column - Brief Symmetrical Biography */}
-        <div className="lg:col-span-7 flex flex-col gap-6 text-left">
-          {/* Header */}
-          <div className="flex flex-col gap-3.5 pb-2">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#0a4a83]">Professional Profile</span>
-            <h1 className="text-3xl md:text-4xl font-black text-zinc-950 tracking-tight leading-tight uppercase font-sans">
+          {/* Right Column - Title & Executive Summary */}
+          <div className="lg:col-span-7 flex flex-col gap-6 text-left">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#0a4a83] px-3 py-1 rounded-full bg-blue-50 border border-blue-100/60 inline-self-start">
+              Professional Profile
+            </span>
+            <h1 className="text-3xl md:text-[42px] font-black text-zinc-950 tracking-tight leading-[1.12] uppercase font-sans">
               SUJAN SINGH: YOUR TRUSTED INVESTMENT ADVISER
             </h1>
             <div className="w-20 h-[3px] bg-[#0a4a83]" />
+            
+            <div className="flex flex-col gap-5 text-sm md:text-[15px] leading-relaxed text-zinc-600 font-medium">
+              <p>
+                I am a <strong className="text-zinc-950 font-black">SEBI-Registered Investment Adviser (RIA)</strong> with a Post Graduate Program in Investment Advisory from NISM (SEBI) and over seven years of experience in financial education, planning, and advisory. My journey in finance began in <strong className="text-zinc-950 font-black">2016</strong>, dedicated to spreading financial awareness and helping people make informed decisions about their money.
+              </p>
+              <p>
+                I have conducted and led large-scale financial literacy programs across India, reaching thousands of individuals, professionals, and families. My initiatives have been associated with organisations such as the <strong className="text-zinc-950 font-black">Indian Army, Indian Air Force, ONGC, Press Information Bureau (PIB)</strong>, and numerous universities and institutions. These programs aimed to simplify finance for everyday people, giving them confidence to take control of their financial future.
+              </p>
+            </div>
+
+            {/* Quick Credentials Info Box */}
+            <div className="grid grid-cols-2 gap-4 border-t border-zinc-200/80 pt-6 mt-2">
+              {credentials.map((cred, idx) => (
+                <div key={idx} className="flex flex-col gap-0.5">
+                  <span className="text-[10px] font-black uppercase text-zinc-400 tracking-wider">{cred.label}</span>
+                  <span className="text-xs font-bold text-zinc-800">{cred.val}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* 2. Three Columns Core Pillars Grid */}
+      <div className="max-w-7xl mx-auto px-6 md:px-12 mb-24">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {/* Card 1: Experience & Management */}
+          <div className="bg-white border border-zinc-200/80 rounded-2xl p-8 shadow-sm flex flex-col gap-5 hover:shadow-md transition-shadow relative overflow-hidden group">
+            <div className="absolute top-0 left-0 w-full h-1 bg-[#0a4a83]/20 group-hover:bg-[#0a4a83] transition-colors" />
+            <div className="text-[#0a4a83] w-11 h-11 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center shrink-0">
+              <BookOpen className="w-5.5 h-5.5 stroke-[2]" />
+            </div>
+            <h3 className="text-sm font-black text-zinc-950 uppercase tracking-wide">
+              Operational Excellence & Strategy
+            </h3>
+            <p className="text-xs text-zinc-500 leading-relaxed font-semibold">
+              Apart from financial education, I have been involved in building client-focused strategies, operational excellence, and digital outreach initiatives that help people access reliable financial guidance. My experience in operations, management, and client engagement has given me a deep understanding of the challenges individuals face in personal finance and wealth management.
+            </p>
           </div>
 
-          <div className="flex flex-col gap-5 text-xs md:text-sm leading-relaxed text-zinc-600 font-semibold">
-            <p>
-              I am a <span className="font-extrabold text-zinc-950">SEBI-Registered Investment Adviser (RIA)</span> with a Post Graduate Program in Investment Advisory from NISM (SEBI) and over seven years of experience in financial education, planning, and advisory. My journey in finance began in 2018, dedicated to spreading financial awareness and helping people make informed decisions about their money.
+          {/* Card 2: Fiduciary Promise */}
+          <div className="bg-white border border-zinc-200/80 rounded-2xl p-8 shadow-sm flex flex-col gap-5 hover:shadow-md transition-shadow relative overflow-hidden group">
+            <div className="absolute top-0 left-0 w-full h-1 bg-[#0a4a83]/20 group-hover:bg-[#0a4a83] transition-colors" />
+            <div className="text-[#0a4a83] w-11 h-11 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center shrink-0">
+              <HeartHandshake className="w-5.5 h-5.5 stroke-[2]" />
+            </div>
+            <h3 className="text-sm font-black text-zinc-950 uppercase tracking-wide">
+              Fee-Only Fiduciary Promise
+            </h3>
+            <p className="text-xs text-zinc-500 leading-relaxed font-semibold">
+              Today, as a fee-only fiduciary adviser, I provide transparent, unbiased, and personalised financial planning services. I do not earn commissions or incentives – my only source of income is the fee paid by clients, ensuring 100% unbiased advice. I act as a trusted partner, putting your interests first.
             </p>
-            <p>
-              I have conducted and led large-scale financial literacy programs across India, reaching thousands of individuals, professionals, and families. My initiatives have been associated with organisations such as the Indian Army, Indian Air Force, ONGC, Press Information Bureau (PIB), and numerous universities and institutions. These programs aimed to simplify finance for everyday people, giving them confidence to take control of their financial future.
+          </div>
+
+          {/* Card 3: Large Scale Literacy */}
+          <div className="bg-white border border-zinc-200/80 rounded-2xl p-8 shadow-sm flex flex-col gap-5 hover:shadow-md transition-shadow relative overflow-hidden group">
+            <div className="absolute top-0 left-0 w-full h-1 bg-[#0a4a83]/20 group-hover:bg-[#0a4a83] transition-colors" />
+            <div className="text-[#0a4a83] w-11 h-11 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center shrink-0">
+              <Landmark className="w-5.5 h-5.5 stroke-[2]" />
+            </div>
+            <h3 className="text-sm font-black text-zinc-950 uppercase tracking-wide">
+              National Financial Literacy
+            </h3>
+            <p className="text-xs text-zinc-500 leading-relaxed font-semibold">
+              I'm proud to have conducted programs associated with national defense and governmental bodies, focusing on raising clarity and taking speculative hype out of investments. These programs simplified finance for everyday people, giving them confidence to take control of their financial future.
             </p>
           </div>
         </div>
       </div>
 
-      {/* 2. Structured Fiduciary & Experience Grid Section */}
-      <div className="max-w-7xl mx-auto px-6 md:px-12 mb-24 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        
-        {/* Card 1: Experience & Management */}
-        <div className="bg-white border border-zinc-200/80 rounded-2xl p-8 shadow-sm flex flex-col gap-5">
-          <div className="text-[#0a4a83] w-10 h-10 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center shrink-0">
-            <svg className="w-5 h-5 stroke-[2]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-            </svg>
-          </div>
-          <h3 className="text-xs font-black text-zinc-950 uppercase tracking-wider">
-            Operational Excellence
-          </h3>
-          <p className="text-xs text-zinc-500 leading-relaxed font-semibold">
-            Apart from financial education, I have been involved in building client-focused strategies, operational excellence, and digital outreach initiatives that help people access reliable financial guidance. My experience in operations, management, and client engagement has given me a deep understanding of the challenges individuals face in personal finance and wealth management.
+      {/* 3. Quote / Philosophy Banner (Full Width Dark Navy) */}
+      <div className="bg-zinc-900 text-white py-16 px-6 md:px-12 relative overflow-hidden mb-24">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(10,74,131,0.25)_0%,transparent_75%)] pointer-events-none" />
+        <div className="max-w-4xl mx-auto text-center flex flex-col items-center gap-6 relative z-10">
+          <span className="text-5xl text-[#0a4a83]/50 font-serif leading-none">“</span>
+          <p className="text-base md:text-xl font-extrabold italic leading-relaxed text-zinc-100">
+            I believe good financial planning is not just about numbers, but about building confidence, security, and a sense of control over your future.
           </p>
-        </div>
-
-        {/* Card 2: Fiduciary Mandate */}
-        <div className="bg-white border border-zinc-200/80 rounded-2xl p-8 shadow-sm flex flex-col gap-5">
-          <div className="text-[#0a4a83] w-10 h-10 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center shrink-0">
-            <svg className="w-5 h-5 stroke-[2]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-          </div>
-          <h3 className="text-xs font-black text-zinc-950 uppercase tracking-wider">
-            Fee-Only & Fiduciary
-          </h3>
-          <p className="text-xs text-zinc-500 leading-relaxed font-semibold">
-            Today, as a fee-only fiduciary adviser, I provide transparent, unbiased, and personalised financial planning services. I do not earn commissions or incentives – my only source of income is the fee paid by clients, ensuring 100% unbiased advice. I act as a trusted partner, helping clients:
-          </p>
-          <ul className="flex flex-col gap-2.5 text-[11px] text-zinc-650 font-bold leading-relaxed mt-2 border-t border-zinc-150/60 pt-4">
-            {RIAFoci.map((item, idx) => (
-              <li key={idx} className="flex items-start gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#0a4a83] mt-1.5 shrink-0" />
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Card 3: Mission & Commitment */}
-        <div className="bg-white border border-zinc-200/80 rounded-2xl p-8 shadow-sm flex flex-col gap-5">
-          <div className="text-[#0a4a83] w-10 h-10 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center shrink-0">
-            <svg className="w-5 h-5 stroke-[2]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.6-5.84a14.977 14.977 0 015.84-2.58" />
-            </svg>
-          </div>
-          <h3 className="text-xs font-black text-zinc-950 uppercase tracking-wider">
-            Mission Statement
-          </h3>
-          <p className="text-xs text-zinc-500 leading-relaxed font-semibold">
-            My mission is simple – to empower people to achieve financial freedom and peace of mind through ethical, client-first advisory services. I believe good financial planning is not just about numbers, but about building confidence, security, and a sense of control over your future.
-          </p>
-          <p className="text-xs text-zinc-500 leading-relaxed font-semibold border-t border-zinc-150/60 pt-4">
-            With every client, my goal is to create a long-term partnership based on trust, transparency, and measurable results.
+          <div className="w-12 h-0.5 bg-[#0a4a83]" />
+          <p className="text-[10px] font-black uppercase tracking-wider text-zinc-400">
+            My Mission — Empower people to achieve financial freedom and peace of mind.
           </p>
         </div>
       </div>
 
-      {/* 2. Professional Journey Section */}
-      <div className="max-w-7xl mx-auto px-6 md:px-12 py-20 border-t border-zinc-200/60 text-center flex flex-col items-center">
-        {/* Header */}
-        <div className="flex items-center justify-center gap-4 mb-8">
-          <div className="h-[1.5px] w-24 bg-[#0a4a83]/30" />
-          <span className="text-sm font-black uppercase tracking-[0.15em] text-[#0a4a83]">
-            My Professional Journey
+      {/* 4. Trusted Partner & Helping Clients (Custom Grid points) */}
+      <div className="max-w-7xl mx-auto px-6 md:px-12 mb-24 text-center">
+        <div className="flex flex-col items-center mb-16">
+          <span className="text-xs font-bold uppercase tracking-widest text-[#0a4a83] px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-100/60 inline-flex items-center gap-1.5">
+            How I Serve You
           </span>
-          <div className="h-[1.5px] w-24 bg-[#0a4a83]/30" />
+          <h2 className="text-2xl md:text-3xl font-black text-zinc-950 tracking-tight leading-tight uppercase font-sans mt-5">
+            Acting as Your Trusted Fiduciary Partner
+          </h2>
+          <p className="text-xs md:text-sm text-zinc-500 font-bold uppercase tracking-wider mt-3 max-w-xl mx-auto">
+            I work closely with each client to build a structured financial blueprint designed for clarity and confidence.
+          </p>
         </div>
 
-        <div className="max-w-4xl flex flex-col gap-6 text-sm text-left text-zinc-600 font-semibold leading-relaxed">
-          <p>
-            I began my professional journey in the stock market education space in 2016 at <strong className="text-zinc-950 font-extrabold">BIFS Pvt. Ltd.</strong>, where I worked as <strong className="text-zinc-950 font-extrabold">Chief Operations Manager</strong> until 2023. During my time there, I had the privilege of leading some of India's largest-scale Financial Literacy Programs. These initiatives reached thousands of individuals, including professionals from prestigious institutions such as:
-          </p>
-
-          {/* Institution lists */}
-          <ul className="flex flex-col gap-3 pl-4 text-zinc-700">
-            {institutions.map((item, idx) => (
-              <li key={idx} className="flex items-start gap-2.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#0a4a83] mt-2 shrink-0" />
-                <span className="text-xs font-bold leading-relaxed">{item}</span>
-              </li>
-            ))}
-          </ul>
-
-          <p>
-            In addition to my role in leading these educational initiatives, I was responsible for overseeing operations, management, and sales within the company. My leadership allowed me to drive impactful change and contribute to a broader mission of empowering people with financial knowledge.
-          </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+          {RIAPromises.map((promise, idx) => (
+            <div
+              key={idx}
+              className="bg-white border border-zinc-200/80 rounded-2xl p-6 shadow-sm flex gap-4 hover:border-[#0a4a83]/20 transition-all group"
+            >
+              <div className="w-10 h-10 rounded-xl bg-blue-50 border border-blue-100/60 text-[#0a4a83] flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                <CheckCircle2 className="w-5 h-5 stroke-[2.5]" />
+              </div>
+              <div className="flex flex-col gap-1.5">
+                <h4 className="text-sm font-black text-zinc-950 leading-snug">
+                  {promise.title}
+                </h4>
+                <p className="text-xs text-zinc-500 leading-relaxed font-semibold">
+                  {promise.desc}
+                </p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
 
-      {/* 3. Let's Get Started CTA Section */}
-      <LetsGetStarted />
-
-      {/* 4. Why Choose Me Section */}
+      {/* 5. Why Choose Me Section */}
       <WhyChooseMe />
+
+      {/* 6. Let's Get Started CTA Section */}
+      <LetsGetStarted />
     </div>
   );
 }
