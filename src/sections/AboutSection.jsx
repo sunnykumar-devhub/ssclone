@@ -15,15 +15,21 @@ export default function AboutSection() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          {/* Left Column - Smiling blazer image */}
-          <div className="lg:col-span-5 flex justify-center">
-            <div className="relative w-full max-w-[420px] aspect-[3/4] rounded-2xl overflow-hidden shadow-md border border-zinc-100">
-              <Image
-                src="/sujan_about.jpg"
-                alt="Sujan Singh smile checkered blazer"
-                fill
-                className="object-cover object-top hover:scale-[1.03] transition-transform duration-550"
-              />
+          {/* Left Column - Circular premium frame */}
+          <div className="lg:col-span-5 flex justify-center relative">
+            {/* Soft background glow */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 rounded-full bg-blue-50/50 blur-xl -z-10" />
+            
+            {/* Elegant double border circle */}
+            <div className="relative w-[340px] h-[340px] md:w-[360px] md:h-[360px] rounded-full p-2 border-2 border-dashed border-[#0a4a83]/20 flex items-center justify-center">
+              <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-white shadow-lg bg-zinc-50">
+                <Image
+                  src="/sujan_hero.jpg"
+                  alt="Sujan Singh portrait"
+                  fill
+                  className="object-cover object-top scale-[1.05] hover:scale-[1.10] transition-transform duration-550"
+                />
+              </div>
             </div>
           </div>
 

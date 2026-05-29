@@ -23,7 +23,7 @@ export default function Services() {
     {
       id: 1,
       title: "RETIREMENT PLANNING",
-      img: "/retirement_couple.png",
+      img: "/retirement_planning.png",
       alignLeft: true,
       icon: Shield,
       bullets1: [
@@ -41,7 +41,7 @@ export default function Services() {
     {
       id: 2,
       title: "GOAL-BASED PLANNING",
-      img: "/goal_based.png",
+      img: "/goal_planning.png",
       alignLeft: false,
       icon: Target,
       bullets1: [
@@ -58,7 +58,7 @@ export default function Services() {
     {
       id: 3,
       title: "INSURANCE PLANNING",
-      img: "/insurance.png",
+      img: "/insurance_planning.png",
       alignLeft: true,
       icon: Heart,
       bullets1: [
@@ -75,7 +75,7 @@ export default function Services() {
     {
       id: 4,
       title: "EMERGENCY FUND PLANNING",
-      img: "/emergency.png",
+      img: "/emergency_planning.png",
       alignLeft: false,
       icon: Scale,
       bullets1: [
@@ -92,7 +92,7 @@ export default function Services() {
     {
       id: 5,
       title: "TAX PLANNING",
-      img: "/tax_planning.png",
+      img: "/tax_planning_v2.png",
       alignLeft: true,
       icon: Calculator,
       bullets1: [
@@ -110,7 +110,7 @@ export default function Services() {
     {
       id: 6,
       title: "RISK PROFILING",
-      img: "/risk_profiling.png",
+      img: "/risk_profiling_v2.png",
       alignLeft: false,
       icon: Compass,
       bullets1: [
@@ -204,7 +204,6 @@ export default function Services() {
       {/* 3. Personalized Financial Planning Header */}
       <div className="max-w-7xl mx-auto px-6 md:px-12 text-center mb-16">
         <div className="flex items-center justify-center gap-2 mb-3">
-          <span className="text-[#0a4a83] text-xl">♦</span>
           <h3 className="text-2xl md:text-3xl font-black text-[#0a4a83] uppercase tracking-wide">
             Personalized Financial Planning
           </h3>
@@ -287,7 +286,6 @@ export default function Services() {
       {/* 4. Wealth Management Section */}
       <div className="max-w-7xl mx-auto px-6 md:px-12 py-20 border-t border-zinc-200/60 text-center flex flex-col items-center mb-16 bg-white rounded-2xl shadow-sm border border-zinc-200">
         <div className="flex items-center justify-center gap-2 mb-4">
-          <span className="text-[#0a4a83] text-xl">♦</span>
           <h3 className="text-2xl md:text-3xl font-black text-[#0a4a83] uppercase tracking-wide">
             Wealth Management Service
           </h3>
@@ -316,7 +314,6 @@ export default function Services() {
       {/* 5. Stock Advisory Section */}
       <div className="max-w-7xl mx-auto px-6 md:px-12 py-20 text-center flex flex-col items-center mb-16 bg-white rounded-2xl shadow-sm border border-zinc-200">
         <div className="flex items-center justify-center gap-2 mb-4">
-          <span className="text-[#0a4a83] text-xl">♦</span>
           <h3 className="text-2xl md:text-3xl font-black text-[#0a4a83] uppercase tracking-wide">
             Stock Advisory Service
           </h3>

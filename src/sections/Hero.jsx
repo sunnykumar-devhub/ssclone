@@ -30,18 +30,35 @@ export default function Hero() {
 
         {/* Right graphic column */}
         <div className="lg:col-span-5 relative flex justify-center items-center">
-          {/* Circular pinkish background shapes behind Sujan */}
-          <div className="absolute top-[5%] left-[5%] w-[340px] h-[340px] rounded-full bg-[#fde8e8]/70 -z-10 pointer-events-none" />
-          <div className="absolute bottom-[0%] right-[0%] w-[100px] h-[100px] rounded-full bg-[#fde8e8]/80 -z-10 pointer-events-none" />
+          {/* Subtle elegant brand colored background shapes */}
+          <div className="absolute -top-6 -left-6 w-72 h-72 rounded-full bg-blue-50/70 blur-2xl -z-10 pointer-events-none" />
+          <div className="absolute -bottom-8 -right-8 w-60 h-60 rounded-full bg-blue-100/50 blur-3xl -z-10 pointer-events-none" />
           
-          <div className="relative w-[340px] h-[340px] md:w-[380px] md:h-[380px] overflow-hidden rounded-full flex items-center justify-center border-4 border-white shadow-lg">
+          {/* Offset accent border */}
+          <div className="absolute inset-0 max-w-[340px] aspect-[3/4] rounded-3xl border-2 border-[#0a4a83]/15 translate-x-4 translate-y-4 -z-10 hidden sm:block" />
+
+          {/* Main Portrait */}
+          <div className="relative w-full max-w-[340px] aspect-[3/4] overflow-hidden rounded-3xl border-4 border-white shadow-xl bg-zinc-50 group">
             <Image
-              src="/sujan_hero.jpg"
+              src="/sujan_about.jpg"
               alt="Sujan Singh"
               fill
               priority
-              className="object-cover object-top scale-[1.08] hover:scale-[1.12] transition-transform duration-500"
+              className="object-cover object-top hover:scale-[1.05] transition-transform duration-500"
             />
+            
+            {/* Floating Glassmorphism Badge */}
+            <div className="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-md border border-white/50 rounded-2xl p-3 shadow-md flex items-center gap-3 transform translate-y-1 group-hover:translate-y-0 transition-transform duration-350">
+              <div className="w-8 h-8 rounded-lg bg-[#0a4a83] flex items-center justify-center text-white shrink-0">
+                <svg className="w-4.5 h-4.5 stroke-[2.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.745 3.745 0 011.043 3.296A3.745 3.745 0 0121 12z" />
+                </svg>
+              </div>
+              <div className="text-left">
+                <p className="text-[10px] font-black text-zinc-400 uppercase tracking-wider leading-none">SEBI Registered Advisor</p>
+                <p className="text-[11px] font-black text-[#0a4a83] leading-tight">Reg No. INA000018593</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
