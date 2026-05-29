@@ -4,22 +4,22 @@ import Link from "next/link";
 
 export default function AboutSection() {
   return (
-    <section className="py-20 bg-white border-t border-zinc-200/50">
+    <section className="pt-20 pb-16 bg-white">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         {/* Section Heading Label */}
         <div className="flex flex-col items-center mb-16">
-          <span className="text-sm font-black uppercase tracking-[0.15em] text-zinc-800">
+          <span className="text-xs font-black uppercase tracking-[0.2em] text-[#0a4a83]">
             About Me
           </span>
-          <div className="w-full h-[1px] bg-zinc-200 mt-4" />
+          <div className="w-16 h-[3px] bg-[#0a4a83] mt-3.5 rounded-full" />
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* Left Column - Smiling blazer image */}
           <div className="lg:col-span-5 flex justify-center">
-            <div className="relative w-full max-w-[420px] aspect-[4/3] rounded-2xl overflow-hidden shadow-md border border-zinc-100">
+            <div className="relative w-full max-w-[420px] aspect-[3/4] rounded-2xl overflow-hidden shadow-md border border-zinc-100">
               <Image
-                src="/sujan_about.png"
+                src="/sujan_about.jpg"
                 alt="Sujan Singh smile checkered blazer"
                 fill
                 className="object-cover object-top hover:scale-[1.03] transition-transform duration-550"

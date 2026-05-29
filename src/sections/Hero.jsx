@@ -36,7 +36,7 @@ export default function Hero() {
           
           <div className="relative w-[340px] h-[340px] md:w-[380px] md:h-[380px] overflow-hidden rounded-full flex items-center justify-center border-4 border-white shadow-lg">
             <Image
-              src="/sujan_hero.png"
+              src="/sujan_hero.jpg"
               alt="Sujan Singh"
               fill
               priority

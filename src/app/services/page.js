@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { Globe, Search, Compass, ClipboardCheck, Heart, Layers, Calculator, Shield, Pin } from "lucide-react";
+import { Globe, Search, Compass, ClipboardCheck, Heart, Layers, Calculator, Shield, Target, Scale, CheckCircle2 } from "lucide-react";
 
 export const metadata = {
   title: "Services Catalog - Sujan Singh",
@@ -25,6 +25,7 @@ export default function Services() {
       title: "RETIREMENT PLANNING",
       img: "/retirement_couple.png",
       alignLeft: true,
+      icon: Shield,
       bullets1: [
         "Estimate retirement needs & expenses.",
         "Create a diversified investment plan.",
@@ -42,6 +43,7 @@ export default function Services() {
       title: "GOAL-BASED PLANNING",
       img: "/goal_based.png",
       alignLeft: false,
+      icon: Target,
       bullets1: [
         "Set & prioritize goals.",
         "Estimate cost & timeline.",
@@ -58,6 +60,7 @@ export default function Services() {
       title: "INSURANCE PLANNING",
       img: "/insurance.png",
       alignLeft: true,
+      icon: Heart,
       bullets1: [
         "Protect your family with the right insurance cover.",
         "Plan for life, health, and critical illness risks.",
@@ -74,6 +77,7 @@ export default function Services() {
       title: "EMERGENCY FUND PLANNING",
       img: "/emergency.png",
       alignLeft: false,
+      icon: Scale,
       bullets1: [
         "Calculate the right emergency fund size.",
         "Keep money easily accessible when needed.",
@@ -90,6 +94,7 @@ export default function Services() {
       title: "TAX PLANNING",
       img: "/tax_planning.png",
       alignLeft: true,
+      icon: Calculator,
       bullets1: [
         "Identify tax-saving opportunities.",
         "Invest in tax-efficient options.",
@@ -107,6 +112,7 @@ export default function Services() {
       title: "RISK PROFILING",
       img: "/risk_profiling.png",
       alignLeft: false,
+      icon: Compass,
       bullets1: [
         "Assess your risk tolerance and profile.",
         "Align investments with your comfort level.",
@@ -121,7 +127,7 @@ export default function Services() {
   ];
 
   return (
-    <div className="bg-zinc-50 min-h-screen pt-36 pb-24 font-sans text-zinc-700">
+    <div className="bg-zinc-50 min-h-screen pt-8 pb-24 font-sans text-zinc-700">
       {/* 1. Umbrella of Services Section */}
       <div className="max-w-7xl mx-auto px-6 md:px-12 mb-24 text-center">
         <div className="flex items-center justify-center gap-4 mb-6">
@@ -161,22 +167,22 @@ export default function Services() {
 
       {/* 2. Importance of Ethics Section */}
       <div className="max-w-7xl mx-auto px-6 md:px-12 mb-24">
-        <div className="glass-card rounded-2xl p-8 md:p-12 border border-zinc-200 bg-white shadow-lg grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative overflow-hidden">
+        <div className="bg-white border border-zinc-200 rounded-2xl p-8 md:p-12 shadow-sm hover:shadow-md transition-shadow grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative overflow-hidden">
           <div className="absolute top-0 right-0 w-48 h-48 bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />
 
           {/* Left Text */}
           <div className="lg:col-span-7 flex flex-col gap-6 text-left">
-            <h2 className="text-2xl md:text-3xl font-black text-zinc-900 tracking-tight leading-tight uppercase font-sans">
+            <h2 className="text-2xl md:text-3xl font-black text-zinc-950 tracking-tight leading-tight uppercase font-sans">
               THE IMPORTANCE OF ETHICS IN <br /> INVESTMENT ADVISORY
             </h2>
             <div className="w-20 h-[3px] bg-[#0a4a83]" />
 
-            <div className="flex flex-col gap-4 text-xs md:text-sm text-zinc-500 font-bold leading-relaxed">
+            <div className="flex flex-col gap-5 text-xs md:text-sm text-zinc-600 font-semibold leading-relaxed">
               <p>
                 Ethical Integrity in Investment Advisory is paramount, as individuals rely on accurate financial reports to make critical decisions, such as investing for retirement, funding education, or securing loans. Advisory are entrusted with the responsibility of ensuring transparency, accuracy, and honesty in their reporting.
               </p>
               <p>
-                Any compromise in these values can mislead investors and negatively impact their long-term financial goals. As a <strong className="text-zinc-950 font-extrabold">SEBI-registered Investment Adviser</strong>, I adhere to strict ethical standards, ensuring that all financial advice and reports are based on truthful and reliable data, fostering trust and helping clients make informed, data-driven decisions.
+                Any compromise in these values can mislead investors and negatively impact their long-term financial goals. As a <strong className="text-zinc-950 font-black">SEBI-registered Investment Adviser</strong>, I adhere to strict ethical standards, ensuring that all financial advice and reports are based on truthful and reliable data, fostering trust and helping clients make informed, data-driven decisions.
               </p>
             </div>
           </div>
@@ -185,7 +191,7 @@ export default function Services() {
           <div className="lg:col-span-5 flex justify-center">
             <div className="relative w-full max-w-[340px] aspect-[3/4] rounded-2xl overflow-hidden shadow border border-zinc-150 shrink-0">
               <Image
-                src="/sujan_about.png"
+                src="/sujan_services.jpg"
                 alt="Sujan Singh sitting portrait"
                 fill
                 className="object-cover object-top"
@@ -210,39 +216,43 @@ export default function Services() {
 
       {/* Alternating Sub Services details */}
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col gap-12 mb-24">
-        {planningServicesDetails.map((svc) => (
-          <div
-            key={svc.id}
-            className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start bg-white border border-zinc-200 rounded-2xl p-8 md:p-12 shadow-sm"
-          >
-            {/* Left Photo (if alignLeft is true) or (on mobile screen) */}
+        {planningServicesDetails.map((svc) => {
+          const Icon = svc.icon;
+          return (
             <div
-              className={`lg:col-span-5 flex justify-center ${
-                svc.alignLeft ? "lg:order-1" : "lg:order-2"
-              }`}
+              key={svc.id}
+              className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start bg-white border border-zinc-200 rounded-2xl p-8 md:p-12 shadow-sm"
             >
-              <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow border border-zinc-150 shrink-0">
-                <Image
-                  src={svc.img}
-                  alt={svc.title}
-                  fill
-                  className="object-cover object-center"
-                />
+              {/* Left Photo (if alignLeft is true) or (on mobile screen) */}
+              <div
+                className={`lg:col-span-5 flex justify-center ${
+                  svc.alignLeft ? "lg:order-1" : "lg:order-2"
+                }`}
+              >
+                <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow border border-zinc-150 shrink-0">
+                  <Image
+                    src={svc.img}
+                    alt={svc.title}
+                    fill
+                    className="object-cover object-center"
+                  />
+                </div>
               </div>
-            </div>
 
-            {/* Right Text */}
-            <div
-              className={`lg:col-span-7 flex flex-col gap-6 text-left ${
-                svc.alignLeft ? "lg:order-2" : "lg:order-1"
-              }`}
-            >
-              <div className="flex items-center gap-2">
-                <Pin className="w-5 h-5 text-[#e11d48] rotate-45 stroke-[2.5]" />
-                <h4 className="text-lg font-black text-zinc-950 uppercase tracking-wider font-sans">
-                  {svc.title}
-                </h4>
-              </div>
+              {/* Right Text */}
+              <div
+                className={`lg:col-span-7 flex flex-col gap-6 text-left ${
+                  svc.alignLeft ? "lg:order-2" : "lg:order-1"
+                }`}
+              >
+                <div className="flex items-center gap-2">
+                  <div className="text-[#0a4a83] w-10 h-10 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center shrink-0">
+                    <Icon className="w-5 h-5 stroke-[2]" />
+                  </div>
+                  <h4 className="text-lg font-black text-zinc-950 uppercase tracking-wider font-sans">
+                    {svc.title}
+                  </h4>
+                </div>
 
               {/* List 1 */}
               <ul className="flex flex-col gap-2.5 pl-4 text-xs font-bold text-zinc-600">
@@ -270,7 +280,8 @@ export default function Services() {
               </ul>
             </div>
           </div>
-        ))}
+        );
+      })}
       </div>
 
       {/* 4. Wealth Management Section */}
@@ -349,8 +360,10 @@ export default function Services() {
 
       {/* 6. Who Is This For Section */}
       <div className="max-w-7xl mx-auto px-6 md:px-12 py-16 text-center flex flex-col items-center bg-white rounded-2xl shadow-sm border border-zinc-200">
-        <div className="flex items-center justify-center gap-2 mb-6">
-          <Pin className="w-5 h-5 text-[#e11d48] rotate-45 stroke-[2.5]" />
+        <div className="flex flex-col items-center gap-4 mb-6">
+          <div className="text-[#0a4a83] w-10 h-10 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center shrink-0">
+            <CheckCircle2 className="w-5 h-5 stroke-[2]" />
+          </div>
           <h3 className="text-2xl font-black text-zinc-950 uppercase tracking-wider font-sans">
             WHO IS THIS FOR?
           </h3>
