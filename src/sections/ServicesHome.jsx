@@ -50,7 +50,6 @@ export default function ServicesHome() {
         {/* 1. Personalized Financial Planning */}
         <div className="mb-24 text-center flex flex-col items-center">
           <div className="flex items-center justify-center gap-2 mb-3">
-            <span className="text-[#0a4a83] text-xl">♦</span>
             <h3 className="text-2xl md:text-3xl font-black text-[#0a4a83]">
               Personalized Financial Planning
             </h3>
@@ -71,7 +70,7 @@ export default function ServicesHome() {
                   <div className="text-[#0a4a83] w-10 h-10 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center shrink-0">
                     <Icon className="w-5 h-5 stroke-[2]" />
                   </div>
-                  <h4 className="text-[12px] font-black text-zinc-900 tracking-wider">
+                  <h4 className="text-[16px] md:text-[17px] font-black text-zinc-900 tracking-wide">
                     {sub.title}
                   </h4>
                   <ul className="flex flex-col gap-2.5 text-xs text-zinc-600 font-semibold leading-relaxed">
@@ -96,34 +95,67 @@ export default function ServicesHome() {
         {/* 2. Wealth Management Service */}
         <div className="mb-24 py-16 border-t border-zinc-200/60 text-center flex flex-col items-center">
           <div className="flex items-center justify-center gap-2 mb-3">
-            <span className="text-[#0a4a83] text-xl">♦</span>
             <h3 className="text-2xl md:text-3xl font-black text-[#0a4a83]">
               Wealth Management Service
             </h3>
           </div>
-          <p className="text-sm text-zinc-800 mb-8 font-bold leading-relaxed max-w-3xl">
+          <p className="text-sm text-zinc-800 mb-12 font-bold leading-relaxed max-w-3xl">
             We provide continuous guidance and reviews to ensure your investments stay aligned with your changing goals and market conditions.
           </p>
-          <div className="max-w-4xl flex flex-col items-center justify-center gap-6 text-sm text-zinc-650 leading-relaxed font-bold">
-            <p className="text-zinc-600 text-center">
-              This ongoing wealth management service is for clients who have already completed their financial planning with us and want continuous professional guidance. We help ensure that their investments remain aligned with changing goals, market conditions, and life situations, providing regular reviews, timely rebalancing, and strategic advice to keep their wealth on track for long-term growth and security.
-            </p>
-            <ul className="flex flex-col items-center gap-3 text-zinc-700">
-              <li className="flex items-center justify-center gap-2 text-center">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#0a4a83] shrink-0" />
-                <span>Regular Portfolio Reviews – Unbiased checks to keep investments aligned.</span>
-              </li>
-              <li className="flex items-center justify-center gap-2 text-center">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#0a4a83] shrink-0" />
-                <span>Strategic Modifications – Adjustments as markets and personal situations change.</span>
-              </li>
-            </ul>
-            <div className="pt-2">
+          
+          {/* Grid of 3 cards matching the layout above */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
+            <div className="rounded-xl p-8 bg-zinc-50 border border-zinc-200/80 shadow-sm flex flex-col items-center text-center justify-between gap-5 hover:shadow-md hover:border-[#0a4a83]/30 transition-all min-h-[250px]">
+              <div className="text-[#0a4a83] w-10 h-10 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center shrink-0">
+                <Shield className="w-5 h-5 stroke-[2]" />
+              </div>
+              <h4 className="text-[16px] md:text-[17px] font-black text-zinc-900 tracking-wide">
+                Regular Portfolio Reviews
+              </h4>
+              <p className="text-xs text-zinc-600 font-semibold leading-relaxed">
+                Unbiased checks to keep investments aligned with your long-term goals.
+              </p>
               <Link
                 href="/services"
-                className="text-xs font-bold text-[#0a4a83] hover:underline"
+                className="text-xs font-black text-[#0a4a83] hover:underline"
               >
-                Read More...
+                Explore More...
+              </Link>
+            </div>
+
+            <div className="rounded-xl p-8 bg-zinc-50 border border-zinc-200/80 shadow-sm flex flex-col items-center text-center justify-between gap-5 hover:shadow-md hover:border-[#0a4a83]/30 transition-all min-h-[250px]">
+              <div className="text-[#0a4a83] w-10 h-10 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center shrink-0">
+                <Scale className="w-5 h-5 stroke-[2]" />
+              </div>
+              <h4 className="text-[16px] md:text-[17px] font-black text-zinc-900 tracking-wide">
+                Strategic Modifications
+              </h4>
+              <p className="text-xs text-zinc-600 font-semibold leading-relaxed">
+                Timely adjustments and portfolio rebalancing as markets and personal situations change.
+              </p>
+              <Link
+                href="/services"
+                className="text-xs font-black text-[#0a4a83] hover:underline"
+              >
+                Explore More...
+              </Link>
+            </div>
+
+            <div className="rounded-xl p-8 bg-zinc-50 border border-zinc-200/80 shadow-sm flex flex-col items-center text-center justify-between gap-5 hover:shadow-md hover:border-[#0a4a83]/30 transition-all min-h-[250px]">
+              <div className="text-[#0a4a83] w-10 h-10 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center shrink-0">
+                <Heart className="w-5 h-5 stroke-[2]" />
+              </div>
+              <h4 className="text-[16px] md:text-[17px] font-black text-zinc-900 tracking-wide">
+                Continuous Support
+              </h4>
+              <p className="text-xs text-zinc-600 font-semibold leading-relaxed">
+                Ongoing direct professional guidance for all your financial decisions throughout the year.
+              </p>
+              <Link
+                href="/services"
+                className="text-xs font-black text-[#0a4a83] hover:underline"
+              >
+                Explore More...
               </Link>
             </div>
           </div>
@@ -132,38 +164,67 @@ export default function ServicesHome() {
         {/* 3. Stock Advisory Service */}
         <div className="py-16 border-t border-zinc-200/60 text-center flex flex-col items-center">
           <div className="flex items-center justify-center gap-2 mb-3">
-            <span className="text-[#0a4a83] text-xl">♦</span>
             <h3 className="text-2xl md:text-3xl font-black text-[#0a4a83]">
               Stock Advisory Service
             </h3>
           </div>
-          <p className="text-sm text-zinc-800 mb-8 font-bold leading-relaxed max-w-3xl">
+          <p className="text-sm text-zinc-800 mb-12 font-bold leading-relaxed max-w-3xl">
             Our Stock Advisory Service is designed for clients who wish to allocate a portion of their investments to equities for long-term growth.
           </p>
-          <div className="max-w-4xl flex flex-col items-center justify-center gap-6 text-sm text-zinc-650 leading-relaxed font-bold">
-            <p className="text-zinc-600 text-center">
-              Our stock Advisory service is offered only to clients who have already completed their financial planning with us and wish to allocate a portion of their investments to equities. We focus on long-term wealth creation through fundamentally strong companies and do not provide trading calls, intraday tips, or technical analysis-based recommendations.
-            </p>
-            <ul className="flex flex-col items-center gap-3 text-zinc-700">
-              <li className="flex items-center justify-center gap-2 text-center">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#0a4a83] shrink-0" />
-                <span>Advise fundamentally strong, long-term stocks.</span>
-              </li>
-              <li className="flex items-center justify-center gap-2 text-center">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#0a4a83] shrink-0" />
-                <span>No trading or speculative calls – only research-based picks.</span>
-              </li>
-              <li className="flex items-center justify-center gap-2 text-center">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#0a4a83] shrink-0" />
-                <span>Portfolio suggestions aligned with your risk profile.</span>
-              </li>
-            </ul>
-            <div className="pt-2">
+          
+          {/* Grid of 3 cards matching the layout above */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
+            <div className="rounded-xl p-8 bg-zinc-50 border border-zinc-200/80 shadow-sm flex flex-col items-center text-center justify-between gap-5 hover:shadow-md hover:border-[#0a4a83]/30 transition-all min-h-[250px]">
+              <div className="text-[#0a4a83] w-10 h-10 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center shrink-0">
+                <Calculator className="w-5 h-5 stroke-[2]" />
+              </div>
+              <h4 className="text-[16px] md:text-[17px] font-black text-zinc-900 tracking-wide">
+                Fundamentally Strong Stocks
+              </h4>
+              <p className="text-xs text-zinc-600 font-semibold leading-relaxed">
+                Advise fundamentally strong, long-term stocks based purely on research.
+              </p>
               <Link
                 href="/services"
-                className="text-xs font-bold text-[#0a4a83] hover:underline"
+                className="text-xs font-black text-[#0a4a83] hover:underline"
               >
-                Read More...
+                Explore More...
+              </Link>
+            </div>
+
+            <div className="rounded-xl p-8 bg-zinc-50 border border-zinc-200/80 shadow-sm flex flex-col items-center text-center justify-between gap-5 hover:shadow-md hover:border-[#0a4a83]/30 transition-all min-h-[250px]">
+              <div className="text-[#0a4a83] w-10 h-10 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center shrink-0">
+                <Compass className="w-5 h-5 stroke-[2]" />
+              </div>
+              <h4 className="text-[16px] md:text-[17px] font-black text-zinc-900 tracking-wide">
+                Research-Backed Picks
+              </h4>
+              <p className="text-xs text-zinc-600 font-semibold leading-relaxed">
+                No trading or speculative calls – only long-term research-based recommendations.
+              </p>
+              <Link
+                href="/services"
+                className="text-xs font-black text-[#0a4a83] hover:underline"
+              >
+                Explore More...
+              </Link>
+            </div>
+
+            <div className="rounded-xl p-8 bg-zinc-50 border border-zinc-200/80 shadow-sm flex flex-col items-center text-center justify-between gap-5 hover:shadow-md hover:border-[#0a4a83]/30 transition-all min-h-[250px]">
+              <div className="text-[#0a4a83] w-10 h-10 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center shrink-0">
+                <Target className="w-5 h-5 stroke-[2]" />
+              </div>
+              <h4 className="text-[16px] md:text-[17px] font-black text-zinc-900 tracking-wide">
+                Tailored Portfolios
+              </h4>
+              <p className="text-xs text-zinc-600 font-semibold leading-relaxed">
+                Custom portfolio suggestions carefully aligned with your risk profile.
+              </p>
+              <Link
+                href="/services"
+                className="text-xs font-black text-[#0a4a83] hover:underline"
+              >
+                Explore More...
               </Link>
             </div>
           </div>
