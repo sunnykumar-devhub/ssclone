@@ -170,7 +170,7 @@ export default function ImpostersContainer() {
             </li>
             <li className="flex items-start gap-2.5">
               <span className="w-1.5 h-1.5 rounded-full bg-[#0a4a83] mt-2 shrink-0" />
-              <span>Only communicate through official contact details listed on SEBI's portal</span>
+              <span>Only communicate through official contact details listed on SEBI&apos;s portal</span>
             </li>
           </ul>
         </div>

@@ -15,8 +15,32 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Sujan Singh - SEBI Registered Investment Adviser",
+  metadataBase: new URL("https://sujansingh.in"),
+  title: {
+    default: "Sujan Singh - SEBI Registered Investment Adviser",
+    template: "%s - Sujan Singh",
+  },
   description: "Bespoke wealth management, SEBI compliant advisory, and investment planning services by Sujan Singh.",
+  alternates: {
+    canonical: "./",
+  },
+  openGraph: {
+    title: "Sujan Singh - SEBI Registered Investment Adviser",
+    description: "Bespoke wealth management, SEBI compliant advisory, and investment planning services by Sujan Singh.",
+    url: "https://sujansingh.in",
+    siteName: "Sujan Singh RIA",
+    locale: "en_IN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Sujan Singh - SEBI Registered Investment Adviser",
+    description: "Bespoke wealth management, SEBI compliant advisory, and investment planning services by Sujan Singh.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({ children }) {

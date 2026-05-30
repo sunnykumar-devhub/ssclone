@@ -15,7 +15,7 @@ export default function LetsGetStarted() {
 
         {/* Narrative Paragraph */}
         <p className="text-sm md:text-base text-zinc-300 leading-relaxed font-semibold max-w-3xl">
-          If you're ready to take the next step toward securing your financial future, I would love to connect with you. Whether you're just starting out or looking to refine your investment strategy, I'm here to help guide you every step of the way. Together, we can create a personalized plan that aligns with your goals and sets you on the path to financial success.
+          If you&apos;re ready to take the next step toward securing your financial future, I would love to connect with you. Whether you&apos;re just starting out or looking to refine your investment strategy, I&apos;m here to help guide you every step of the way. Together, we can create a personalized plan that aligns with your goals and sets you on the path to financial success.
         </p>
 
         {/* Call to action statement */}

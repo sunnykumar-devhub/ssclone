@@ -3,7 +3,10 @@ import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X, ArrowUpRight, ChevronDown } from "lucide-react";
-import ConsultationModal from "../consultationmodal";
+import dynamic from "next/dynamic";
+const ConsultationModal = dynamic(() => import("../consultationmodal"), {
+  ssr: false,
+});
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);

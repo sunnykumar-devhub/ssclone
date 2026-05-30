@@ -98,7 +98,7 @@ export default function ContactContainer() {
                 <h3 className="text-sm font-black text-zinc-950 uppercase tracking-wide">Sujan Singh</h3>
                 <p className="text-[10px] font-bold text-[#0a4a83] uppercase tracking-widest mt-0.5">SEBI-Registered Investment Adviser</p>
                 <p className="text-xs text-zinc-500 font-semibold leading-relaxed mt-2.5">
-                  "Spread financial awareness, take absolute control of your money, and achieve secure peace of mind."
+                  &quot;Spread financial awareness, take absolute control of your money, and achieve secure peace of mind.&quot;
                 </p>
               </div>
             </div>
