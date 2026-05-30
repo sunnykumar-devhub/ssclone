@@ -23,7 +23,7 @@ export default function Services() {
     {
       id: 1,
       title: "RETIREMENT PLANNING",
-      img: "/retirement_planning.png",
+      img: "/retirement_planning_unique.png",
       alignLeft: true,
       icon: Shield,
       bullets1: [
@@ -41,7 +41,7 @@ export default function Services() {
     {
       id: 2,
       title: "GOAL-BASED PLANNING",
-      img: "/goal_planning.png",
+      img: "/goal_planning_unique.png",
       alignLeft: false,
       icon: Target,
       bullets1: [
@@ -58,7 +58,7 @@ export default function Services() {
     {
       id: 3,
       title: "INSURANCE PLANNING",
-      img: "/insurance_planning.png",
+      img: "/insurance_planning_unique.png",
       alignLeft: true,
       icon: Heart,
       bullets1: [
@@ -75,7 +75,7 @@ export default function Services() {
     {
       id: 4,
       title: "EMERGENCY FUND PLANNING",
-      img: "/emergency_planning.png",
+      img: "/emergency_planning_unique.png",
       alignLeft: false,
       icon: Scale,
       bullets1: [
@@ -92,7 +92,7 @@ export default function Services() {
     {
       id: 5,
       title: "TAX PLANNING",
-      img: "/tax_planning_v2.png",
+      img: "/tax_planning_unique.png",
       alignLeft: true,
       icon: Calculator,
       bullets1: [
@@ -110,7 +110,7 @@ export default function Services() {
     {
       id: 6,
       title: "RISK PROFILING",
-      img: "/risk_profiling_v2.png",
+      img: "/risk_profiling_unique.png",
       alignLeft: false,
       icon: Compass,
       bullets1: [
@@ -299,7 +299,7 @@ export default function Services() {
             <div className="lg:col-span-5 flex justify-center lg:order-1">
               <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow border border-zinc-150 shrink-0">
                 <Image
-                  src="/risk_profiling_v2.png"
+                  src="/portfolio_reviews_unique.png"
                   alt="Regular Portfolio Reviews"
                   fill
                   className="object-cover object-center"
@@ -325,9 +325,17 @@ export default function Services() {
                   <span className="w-1.5 h-1.5 rounded-full bg-[#0a4a83] mt-1.5 shrink-0" />
                   <span>Comprehensive review of your financial plan every six months.</span>
                 </li>
+                <li className="flex items-start gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#0a4a83] mt-1.5 shrink-0" />
+                  <span>Asset allocation health checks to prevent drift from your comfortable risk level.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#0a4a83] mt-1.5 shrink-0" />
+                  <span>Detailed benchmark comparisons to track relative returns and historical outperformance.</span>
+                </li>
               </ul>
               <p className="text-[13px] text-zinc-500 font-semibold leading-relaxed">
-                As part of our commitment to your financial clarity, we run regular health checks on your asset allocation. This helps prevent drift from your comfortable risk level and keeps your portfolio highly disciplined.
+                As part of our commitment to your financial clarity, we run regular health checks on your asset allocation. This helps prevent drift from your comfortable risk level and keeps your portfolio highly disciplined. Continuous review allows us to adapt your plan dynamically to life shifts, ensuring your capital is always positioned optimally.
               </p>
             </div>
           </div>
@@ -338,7 +346,7 @@ export default function Services() {
             <div className="lg:col-span-5 flex justify-center lg:order-2">
               <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow border border-zinc-150 shrink-0">
                 <Image
-                  src="/tax_planning_v2.png"
+                  src="/strategic_modifications_unique.png"
                   alt="Strategic Modifications"
                   fill
                   className="object-cover object-center"
@@ -364,9 +372,17 @@ export default function Services() {
                   <span className="w-1.5 h-1.5 rounded-full bg-[#0a4a83] mt-1.5 shrink-0" />
                   <span>Tactical shifts aligned perfectly with tax optimization strategies.</span>
                 </li>
+                <li className="flex items-start gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#0a4a83] mt-1.5 shrink-0" />
+                  <span>Realigning dynamic equity and debt weightings during significant macroeconomic market cycles.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#0a4a83] mt-1.5 shrink-0" />
+                  <span>Capital gains harvest advisory to reduce overall tax liability at year-end.</span>
+                </li>
               </ul>
               <p className="text-[13px] text-zinc-500 font-semibold leading-relaxed">
-                When financial environments shift or your personal career goals evolve, your portfolio needs to react. We advise on timely rebalancing and strategic adjustments to lock in progress and capture new growth opportunities.
+                When financial environments shift or your personal career goals evolve, your portfolio needs to react. We advise on timely rebalancing and strategic adjustments to lock in progress and capture new growth opportunities. By proactively modifying key allocations, we safeguard your wealth from volatility while remaining focused on tax efficiency.
               </p>
             </div>
           </div>
@@ -377,7 +393,7 @@ export default function Services() {
             <div className="lg:col-span-5 flex justify-center lg:order-1">
               <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow border border-zinc-150 shrink-0">
                 <Image
-                  src="/insurance_planning.png"
+                  src="/continuous_support_unique.png"
                   alt="Continuous Support"
                   fill
                   className="object-cover object-center"
@@ -403,9 +419,17 @@ export default function Services() {
                   <span className="w-1.5 h-1.5 rounded-full bg-[#0a4a83] mt-1.5 shrink-0" />
                   <span>Unbiased decision support on any sudden home, gold, or tax choices.</span>
                 </li>
+                <li className="flex items-start gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#0a4a83] mt-1.5 shrink-0" />
+                  <span>Direct hotline messaging interface for quick turnaround on your financial queries.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#0a4a83] mt-1.5 shrink-0" />
+                  <span>Independent second opinion evaluations on any corporate benefits or private offers.</span>
+                </li>
               </ul>
               <p className="text-[13px] text-zinc-500 font-semibold leading-relaxed">
-                Financial planning is a living relationship, not a static one-time report. Our ongoing advisory model ensures you have a trusted SEBI-registered professional ready to assist with any financial decision or question that arises.
+                Financial planning is a living relationship, not a static one-time report. Our ongoing advisory model ensures you have a trusted SEBI-registered professional ready to assist with any financial decision or question that arises. From large property acquisitions to minor investment queries, we act as your analytical sound board to prevent costly errors.
               </p>
             </div>
           </div>
@@ -431,7 +455,7 @@ export default function Services() {
             <div className="lg:col-span-5 flex justify-center lg:order-1">
               <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow border border-zinc-150 shrink-0">
                 <Image
-                  src="/goal_planning.png"
+                  src="/strong_stocks_unique.png"
                   alt="Fundamentally Strong Stocks"
                   fill
                   className="object-cover object-center"
@@ -457,9 +481,17 @@ export default function Services() {
                   <span className="w-1.5 h-1.5 rounded-full bg-[#0a4a83] mt-1.5 shrink-0" />
                   <span>Comprehensive analysis of balance sheets, business models, and industry tailwinds.</span>
                 </li>
+                <li className="flex items-start gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#0a4a83] mt-1.5 shrink-0" />
+                  <span>In-depth valuation modeling to purchase premium market leaders at a solid margin of safety.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#0a4a83] mt-1.5 shrink-0" />
+                  <span>Constant tracking of dynamic earnings reports, business KPIs, and management commentaries.</span>
+                </li>
               </ul>
               <p className="text-[13px] text-zinc-500 font-semibold leading-relaxed">
-                We identify high-quality businesses with sustainable competitive advantages (moats), solid management structures, and high growth potential. We aim for wealth creation by buying fundamentally strong companies at reasonable valuations.
+                We identify high-quality businesses with sustainable competitive advantages (moats), solid management structures, and high growth potential. We aim for wealth creation by buying fundamentally strong companies at reasonable valuations. Our research cuts through the market noise, looking strictly at true unit economics and long-term earnings durability.
               </p>
             </div>
           </div>
@@ -470,7 +502,7 @@ export default function Services() {
             <div className="lg:col-span-5 flex justify-center lg:order-2">
               <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow border border-zinc-150 shrink-0">
                 <Image
-                  src="/emergency_planning.png"
+                  src="/research_backed_unique.png"
                   alt="Research-Backed & Fiduciary"
                   fill
                   className="object-cover object-center"
@@ -496,9 +528,17 @@ export default function Services() {
                   <span className="w-1.5 h-1.5 rounded-full bg-[#0a4a83] mt-1.5 shrink-0" />
                   <span>Strictly no speculative tips, day trading calls, or options trading recommendations.</span>
                 </li>
+                <li className="flex items-start gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#0a4a83] mt-1.5 shrink-0" />
+                  <span>Transparent flat-fee model ensuring completely aligned interest with clients' wealth growth.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#0a4a83] mt-1.5 shrink-0" />
+                  <span>Fiduciary code of conduct prioritizing capital preservation and long-term security.</span>
+                </li>
               </ul>
               <p className="text-[13px] text-zinc-500 font-semibold leading-relaxed">
-                As flat-fee fiduciary advisors, we do not earn commissions, kickbacks, or distribution fees from your stock purchases. Our picks are backed exclusively by empirical equity research, ensuring zero conflict of interest.
+                As flat-fee fiduciary advisors, we do not earn commissions, kickbacks, or distribution fees from your stock purchases. Our picks are backed exclusively by empirical equity research, ensuring zero conflict of interest. We offer transparent and clear recommendations that put your financial well-being first and foremost.
               </p>
             </div>
           </div>
@@ -509,7 +549,7 @@ export default function Services() {
             <div className="lg:col-span-5 flex justify-center lg:order-1">
               <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow border border-zinc-150 shrink-0">
                 <Image
-                  src="/retirement_planning.png"
+                  src="/regular_tracking_unique.png"
                   alt="Regular Tracking & Reviews"
                   fill
                   className="object-cover object-center"
@@ -535,9 +575,17 @@ export default function Services() {
                   <span className="w-1.5 h-1.5 rounded-full bg-[#0a4a83] mt-1.5 shrink-0" />
                   <span>Ongoing portfolio checks aligned perfectly with your comfortable risk tolerance level.</span>
                 </li>
+                <li className="flex items-start gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#0a4a83] mt-1.5 shrink-0" />
+                  <span>Strategic entry, buy-ranges, and systematic profit-booking alerts sent directly to you.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#0a4a83] mt-1.5 shrink-0" />
+                  <span>Quarterly report card summaries outlining operational performance changes in your holdings.</span>
+                </li>
               </ul>
               <p className="text-[13px] text-zinc-500 font-semibold leading-relaxed">
-                Equity markets are dynamic. We provide continuous tracking and timely review alerts on all stock advisory picks, advising you when to hold, buy more, or book profits to preserve capital and grow your net worth.
+                Equity markets are dynamic. We provide continuous tracking and timely review alerts on all stock advisory picks, advising you when to hold, buy more, or book profits to preserve capital and grow your net worth. This continuous support ensures you never miss a corporate action or critical turning point in your holdings.
               </p>
             </div>
           </div>
@@ -563,7 +611,7 @@ export default function Services() {
           <div className="bg-white border border-zinc-200 rounded-2xl p-6 md:p-8 shadow-sm flex flex-col gap-6">
             <div className="relative w-full aspect-[16/10] rounded-xl overflow-hidden shadow-sm border border-zinc-100">
               <Image
-                src="/retirement_planning.png"
+                src="/retirement_planning_unique.png"
                 alt="Retirement Planning"
                 fill
                 className="object-cover object-center"
@@ -613,7 +661,7 @@ export default function Services() {
           <div className="bg-white border border-zinc-200 rounded-2xl p-6 md:p-8 shadow-sm flex flex-col gap-6">
             <div className="relative w-full aspect-[16/10] rounded-xl overflow-hidden shadow-sm border border-zinc-100">
               <Image
-                src="/goal_planning.png"
+                src="/goal_planning_unique.png"
                 alt="Goal-Based Planning"
                 fill
                 className="object-cover object-center"
