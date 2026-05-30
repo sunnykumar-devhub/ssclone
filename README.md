@@ -1,37 +1,82 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Sujan Singh - SEBI Registered Investment Adviser Portal
 
-## Getting Started
+An enterprise-grade, highly optimized, SEO-friendly, and accessible Next.js portal for **Sujan Singh (SEBI Registered Investment Adviser - INA000020864)**. Engineered with Next.js App Router, Tailwind CSS, Lucide Icons, and strict lowercase folder conventions, using a robust **Container-Based Architecture**.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🛠️ Project Architecture
+
+This repository operates under a strict **Container-Based Architecture** where route entrypoints are kept light and slim, while section orchestration and logical states are delegated to dedicated, reusable container components.
+
+```txt
+src/
+├── app/                  # Next.js App Router pages (under 10 lines, handles SEO metadata & layout)
+├── components/
+│   ├── layout/           # Shared page wrappers and responsive grid systems
+│   │   ├── pagecontainer
+│   │   ├── sectioncontainer
+│   │   └── gridcontainer
+│   ├── ui/               # Reusable presentational elements
+│   │   ├── accordion
+│   │   ├── button
+│   │   ├── card
+│   │   ├── input
+│   │   └── modal
+│   └── navbar & footer   # Global layout elements
+├── constants/
+│   └── data.js           # Centralized static content and arrays
+├── containers/           # Route-specific orchestrational containers (contains all UI sections composition)
+│   ├── homecontainer
+│   ├── aboutcontainer
+│   └── servicescontainer
+├── hooks/                # Stateful custom hooks (useForm, useModal)
+└── sections/             # Common multi-page presentation sections
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 🚀 Local Development Setup
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Follow these simple steps to spin up the local development portal:
 
-## Learn More
+### 1. Prerequisite Installations
+Make sure you have Node.js (v18.0.0 or higher) installed on your operating system.
 
-To learn more about Next.js, take a look at the following resources:
+### 2. Dependency Setup
+Install clean package dependencies using `npm`:
+```bash
+npm install
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 3. Run Development Server
+Boot the Next.js local compiler environment:
+```bash
+npm run dev
+```
+Open [http://localhost:3000](http://localhost:3000) on your favorite browser to preview the live portal.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 4. Build Codebase & Lint Check
+Verify full compilation and ESLint constraints before pushing changes:
+```bash
+npm run lint
+npm run build
+```
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🌐 Production Live Deployment
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# ssclone
+The codebase is optimized for immediate, zero-config live deployment on cloud platforms like **Vercel** or **Netlify**:
+
+### 1. Deploying to Vercel (Recommended)
+1. Push your local commits to a GitHub repository.
+2. Sign in to your [Vercel Dashboard](https://vercel.com).
+3. Click **Import Project** and select your repository.
+4. Under the configuration panel, keep the standard framework preset as **Next.js** and build command as default.
+5. Click **Deploy**. Vercel will build, optimize static rendering assets, and assign a production URL.
+
+### 2. Static Prerendering (Dynamic Sitemap / Crawler guidelines)
+Next.js dynamically generates search engine assets at build time:
+- **Sitemap Index**: [https://sujansingh.in/sitemap.xml](https://sujansingh.in/sitemap.xml)
+- **Robots Policies**: [https://sujansingh.in/robots.txt](https://sujansingh.in/robots.txt)
+*(Change your base target domain variables inside `src/app/sitemap.js` and `src/app/robots.js` before live launches.)*
