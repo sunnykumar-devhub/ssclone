@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
-import WhyChooseMe from "@/sections/WhyChooseMe";
-import LetsGetStarted from "@/sections/LetsGetStarted";
+import WhyChooseMe from "@/sections/whychooseme";
+import LetsGetStarted from "@/sections/letsgetstarted";
 import { Award, Users, ShieldCheck, HeartHandshake, CheckCircle2, BookOpen, Landmark } from "lucide-react";
 
 export const metadata = {
