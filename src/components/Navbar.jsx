@@ -3,11 +3,13 @@ import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X, ArrowUpRight, ChevronDown } from "lucide-react";
+import ConsultationModal from "./ConsultationModal";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const dropdownRef = useRef(null);
   const pathname = usePathname();
 
@@ -132,13 +134,13 @@ export default function Navbar() {
 
         {/* Action Button */}
         <div className="hidden md:flex items-center">
-          <Link
-            href="/contact"
-            className="flex items-center gap-1.5 bg-[#0a4a83] hover:bg-[#07355e] text-white px-5 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider shadow-sm hover:shadow transition-all"
+          <button
+            onClick={() => setIsModalOpen(true)}
+            className="flex items-center gap-1.5 bg-[#0a4a83] hover:bg-[#07355e] text-white px-5 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider shadow-sm hover:shadow cursor-pointer transition-all active:scale-[0.98]"
           >
             Get Consultation
             <ArrowUpRight className="w-3.5 h-3.5 stroke-[2.5]" />
-          </Link>
+          </button>
         </div>
 
         {/* Mobile menu trigger */}
@@ -192,16 +194,21 @@ export default function Navbar() {
               </Link>
             );
           })}
-          <Link
-            href="/contact"
-            onClick={() => setIsOpen(false)}
-            className="flex items-center justify-center gap-2 bg-[#0a4a83] hover:bg-[#07355e] text-white py-3.5 rounded-xl text-xs font-black uppercase tracking-wider shadow-md active:scale-[0.99] transition-all mt-2"
+          <button
+            onClick={() => {
+              setIsModalOpen(true);
+              setIsOpen(false);
+            }}
+            className="flex items-center justify-center gap-2 bg-[#0a4a83] hover:bg-[#07355e] text-white py-3.5 rounded-xl text-xs font-black uppercase tracking-wider shadow-md active:scale-[0.99] transition-all mt-2 cursor-pointer"
           >
             Get Consultation
             <ArrowUpRight className="w-4 h-4 stroke-[2.5]" />
-          </Link>
+          </button>
         </div>
       )}
+
+      {/* Consultation Modal dialog overlay */}
+      <ConsultationModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </nav>
   );
 }
