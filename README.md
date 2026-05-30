@@ -40,7 +40,7 @@ src/
 Follow these simple steps to spin up the local development portal:
 
 ### 1. Prerequisite Installations
-Make sure you have Node.js (v18.0.0 or higher) installed on your operating system.
+Make sure you have Node.js (v22.x LTS or higher) installed on your operating system.
 
 ### 2. Dependency Setup
 Install clean package dependencies using `npm`:
