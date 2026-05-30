@@ -326,6 +326,44 @@ export default function Contact() {
               </form>
             )}
           </div>
+
+          {/* Fiduciary Commitment & Trust Card to fill the empty space */}
+          <div className="bg-white border border-zinc-200/80 rounded-2xl p-8 shadow-sm flex flex-col gap-6 mt-8 animate-fade-in">
+            <h3 className="text-sm font-black text-zinc-950 uppercase tracking-wider border-b border-zinc-100 pb-4 flex items-center gap-2">
+              <ShieldCheck className="w-5 h-5 text-[#0a4a83] shrink-0" />
+              Fiduciary Commitment & Client Rights
+            </h3>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div className="flex flex-col gap-1.5 text-left">
+                <span className="text-[10px] font-black text-[#0a4a83] uppercase tracking-wider">100% Unbiased Fiduciary</span>
+                <p className="text-[11px] text-zinc-500 font-semibold leading-relaxed">
+                  As a SEBI-registered advisor, we operate under strict fiduciary rules. No commissions, kickbacks, or distribution fees. My advice is paid only by you, completely aligning my interest with your wealth goals.
+                </p>
+              </div>
+
+              <div className="flex flex-col gap-1.5 text-left">
+                <span className="text-[10px] font-black text-[#0a4a83] uppercase tracking-wider">Absolute Data Confidentiality</span>
+                <p className="text-[11px] text-zinc-500 font-semibold leading-relaxed">
+                  Your net worth details, bank positions, and risk profiles are treated with bank-grade security. We do not sell or share information with third parties.
+                </p>
+              </div>
+
+              <div className="flex flex-col gap-1.5 text-left">
+                <span className="text-[10px] font-black text-[#0a4a83] uppercase tracking-wider">Grievance Redressal (SCORES)</span>
+                <p className="text-[11px] text-zinc-500 font-semibold leading-relaxed">
+                  All SEBI-registered advisors are integrated with SCORES (SEBI Complaints Redress System) to ensure clients have a highly structured portal for resolving any service concerns.
+                </p>
+              </div>
+
+              <div className="flex flex-col gap-1.5 text-left">
+                <span className="text-[10px] font-black text-[#0a4a83] uppercase tracking-wider">Rigorous Research Basis</span>
+                <p className="text-[11px] text-zinc-500 font-semibold leading-relaxed">
+                  Every advisory recommendation (asset mix, mutual funds, or individual stocks) is grounded strictly on empirical research models, historical values, and balanced risk reviews.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
