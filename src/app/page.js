@@ -1,10 +1,10 @@
 import React from "react";
-import Hero from "@/sections/Hero";
-import AboutSection from "@/sections/AboutSection";
-import WhyChooseMe from "@/sections/WhyChooseMe";
-import ServicesHome from "@/sections/ServicesHome";
-import FAQsHome from "@/sections/FAQsHome";
-import SEBIDisclosuresHome from "@/sections/SEBIDisclosuresHome";
+import Hero from "@/sections/hero";
+import AboutSection from "@/sections/aboutsection";
+import WhyChooseMe from "@/sections/whychooseme";
+import ServicesHome from "@/sections/serviceshome";
+import FAQsHome from "@/sections/faqshome";
+import SEBIDisclosuresHome from "@/sections/sebidisclosureshome";
 
 export default function Home() {
   return (
