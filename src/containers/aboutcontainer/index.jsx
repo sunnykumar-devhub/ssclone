@@ -2,40 +2,20 @@ import React from "react";
 import Image from "next/image";
 import WhyChooseMe from "@/sections/whychooseme";
 import LetsGetStarted from "@/sections/letsgetstarted";
-import { Award, Users, ShieldCheck, HeartHandshake, CheckCircle2, BookOpen, Landmark } from "lucide-react";
+import { ShieldCheck, CheckCircle2, BookOpen, HeartHandshake, Landmark } from "lucide-react";
+import { credentials, RIAPromises } from "@/constants/data";
+import PageContainer from "@/components/layout/pagecontainer";
+import SectionContainer from "@/components/layout/sectioncontainer";
+import GridContainer from "@/components/layout/gridcontainer";
+import Card from "@/components/ui/card";
+import Badge from "@/components/ui/badge";
 
 export default function AboutContainer() {
-  const RIAPromises = [
-    {
-      title: "Clearly define and prioritise financial goals",
-      desc: "Helping you set clear timelines and realistic targets for your life's major milestones.",
-    },
-    {
-      title: "Create tailored investment & tax-efficient strategies",
-      desc: "Designing customized models that optimize returns while legally minimizing tax burdens.",
-    },
-    {
-      title: "Build secure retirement roadmaps & proper insurance coverage",
-      desc: "Creating life-long income security and safeguarding your family against unexpected risks.",
-    },
-    {
-      title: "Regularly review and adapt plans as life evolves",
-      desc: "Ensuring your financial blueprint adjusts dynamically with career, market, and life stage changes.",
-    },
-  ];
-
-  const credentials = [
-    { label: "Advisory Status", val: "SEBI Registered RIA" },
-    { label: "Experience", val: "7+ Years (Since 2016)" },
-    { label: "Compensation", val: "100% Fee-Only Fiduciary" },
-    { label: "Conflict of Interest", val: "0% Commission / Incentives" },
-  ];
-
   return (
-    <div className="bg-zinc-50 min-h-screen pt-8 pb-24 font-sans text-zinc-700">
+    <PageContainer>
       {/* 1. Profile Hero Section */}
-      <div className="max-w-7xl mx-auto px-6 md:px-12 mb-20 pt-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+      <SectionContainer className="mb-20 pt-8" headerClass="mb-0">
+        <GridContainer cols={12} gap={16} className="items-center">
           {/* Left Column - Large Premium Portrait with Offset Backing */}
           <div className="lg:col-span-5 flex justify-center relative">
             <div className="absolute -top-6 -left-6 w-80 h-80 rounded-full bg-blue-50/70 blur-2xl -z-10 pointer-events-none" />
@@ -69,15 +49,13 @@ export default function AboutContainer() {
 
           {/* Right Column - Title & Executive Summary */}
           <div className="lg:col-span-7 flex flex-col gap-6 text-left">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#0a4a83] px-3 py-1 rounded-full bg-blue-50 border border-blue-100/60 inline-self-start">
-              Professional Profile
-            </span>
+            <Badge>Professional Profile</Badge>
             <h1 className="text-3xl md:text-[42px] font-black text-zinc-950 tracking-tight leading-[1.12] uppercase font-sans">
               SUJAN SINGH: YOUR TRUSTED INVESTMENT ADVISER
             </h1>
             <div className="w-20 h-[3px] bg-[#0a4a83]" />
             
-            <div className="flex flex-col gap-5 text-sm md:text-[15px] leading-relaxed text-zinc-600 font-medium">
+            <div className="flex flex-col gap-5 text-sm md:text-[15px] leading-relaxed text-zinc-650 font-medium">
               <p>
                 I am a <strong className="text-zinc-950 font-black">SEBI-Registered Investment Adviser (RIA)</strong> with a Post Graduate Program in Investment Advisory from NISM (SEBI) and over seven years of experience in financial education, planning, and advisory. My journey in finance began in <strong className="text-zinc-950 font-black">2016</strong>, dedicated to spreading financial awareness and helping people make informed decisions about their money.
               </p>
@@ -96,55 +74,29 @@ export default function AboutContainer() {
               ))}
             </div>
           </div>
-        </div>
-      </div>
+        </GridContainer>
+      </SectionContainer>
 
       {/* 2. Three Columns Core Pillars Grid */}
-      <div className="max-w-7xl mx-auto px-6 md:px-12 mb-24">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Card 1: Experience & Management */}
-          <div className="bg-white border border-zinc-200/80 rounded-2xl p-8 shadow-sm flex flex-col gap-5 hover:shadow-md transition-shadow relative overflow-hidden group">
-            <div className="absolute top-0 left-0 w-full h-1 bg-[#0a4a83]/20 group-hover:bg-[#0a4a83] transition-colors" />
-            <div className="text-[#0a4a83] w-11 h-11 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center shrink-0">
-              <BookOpen className="w-5.5 h-5.5 stroke-[2]" />
-            </div>
-            <h3 className="text-sm font-black text-zinc-950 uppercase tracking-wide">
-              Operational Excellence & Strategy
-            </h3>
-            <p className="text-xs text-zinc-500 leading-relaxed font-semibold">
-              Apart from financial education, I have been involved in building client-focused strategies, operational excellence, and digital outreach initiatives that help people access reliable financial guidance. My experience in operations, management, and client engagement has given me a deep understanding of the challenges individuals face in personal finance and wealth management.
-            </p>
-          </div>
-
-          {/* Card 2: Fiduciary Promise */}
-          <div className="bg-white border border-zinc-200/80 rounded-2xl p-8 shadow-sm flex flex-col gap-5 hover:shadow-md transition-shadow relative overflow-hidden group">
-            <div className="absolute top-0 left-0 w-full h-1 bg-[#0a4a83]/20 group-hover:bg-[#0a4a83] transition-colors" />
-            <div className="text-[#0a4a83] w-11 h-11 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center shrink-0">
-              <HeartHandshake className="w-5.5 h-5.5 stroke-[2]" />
-            </div>
-            <h3 className="text-sm font-black text-zinc-950 uppercase tracking-wide">
-              Fee-Only Fiduciary Promise
-            </h3>
-            <p className="text-xs text-zinc-500 leading-relaxed font-semibold">
-              Today, as a fee-only fiduciary adviser, I provide transparent, unbiased, and personalised financial planning services. I do not earn commissions or incentives – my only source of income is the fee paid by clients, ensuring 100% unbiased advice. I act as a trusted partner, putting your interests first.
-            </p>
-          </div>
-
-          {/* Card 3: Large Scale Literacy */}
-          <div className="bg-white border border-zinc-200/80 rounded-2xl p-8 shadow-sm flex flex-col gap-5 hover:shadow-md transition-shadow relative overflow-hidden group">
-            <div className="absolute top-0 left-0 w-full h-1 bg-[#0a4a83]/20 group-hover:bg-[#0a4a83] transition-colors" />
-            <div className="text-[#0a4a83] w-11 h-11 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center shrink-0">
-              <Landmark className="w-5.5 h-5.5 stroke-[2]" />
-            </div>
-            <h3 className="text-sm font-black text-zinc-950 uppercase tracking-wide">
-              National Financial Literacy
-            </h3>
-            <p className="text-xs text-zinc-500 leading-relaxed font-semibold">
-              I'm proud to have conducted programs associated with national defense and governmental bodies, focusing on raising clarity and taking speculative hype out of investments. These programs simplified finance for everyday people, giving them confidence to take control of their financial future.
-            </p>
-          </div>
-        </div>
-      </div>
+      <SectionContainer className="mb-24">
+        <GridContainer cols={3} gap={8}>
+          <Card
+            icon={BookOpen}
+            title="Operational Excellence & Strategy"
+            desc="Apart from financial education, I have been involved in building client-focused strategies, operational excellence, and digital outreach initiatives that help people access reliable financial guidance. My experience in operations, management, and client engagement has given me a deep understanding of the challenges individuals face in personal finance and wealth management."
+          />
+          <Card
+            icon={HeartHandshake}
+            title="Fee-Only Fiduciary Promise"
+            desc="Today, as a fee-only fiduciary adviser, I provide transparent, unbiased, and personalised financial planning services. I do not earn commissions or incentives – my only source of income is the fee paid by clients, ensuring 100% unbiased advice. I act as a trusted partner, putting your interests first."
+          />
+          <Card
+            icon={Landmark}
+            title="National Financial Literacy"
+            desc="I'm proud to have conducted programs associated with national defense and governmental bodies, focusing on raising clarity and taking speculative hype out of investments. These programs simplified finance for everyday people, giving them confidence to take control of their financial future."
+          />
+        </GridContainer>
+      </SectionContainer>
 
       {/* 3. Quote / Philosophy Banner (Full Width Dark Navy) */}
       <div className="bg-zinc-900 text-white py-16 px-6 md:px-12 relative overflow-hidden mb-24">
@@ -162,20 +114,14 @@ export default function AboutContainer() {
       </div>
 
       {/* 4. Trusted Partner & Helping Clients (Custom Grid points) */}
-      <div className="max-w-7xl mx-auto px-6 md:px-12 mb-24 text-center">
-        <div className="flex flex-col items-center mb-16">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#0a4a83] px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-100/60 inline-flex items-center gap-1.5">
-            How I Serve You
-          </span>
-          <h2 className="text-2xl md:text-3xl font-black text-zinc-950 tracking-tight leading-tight uppercase font-sans mt-5">
-            Acting as Your Trusted Fiduciary Partner
-          </h2>
-          <p className="text-xs md:text-sm text-zinc-500 font-bold uppercase tracking-wider mt-3 max-w-xl mx-auto">
-            I work closely with each client to build a structured financial blueprint designed for clarity and confidence.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+      <SectionContainer
+        badge="How I Serve You"
+        title="Acting as Your Trusted Fiduciary Partner"
+        subtitle="I work closely with each client to build a structured financial blueprint designed for clarity and confidence."
+        center
+        className="mb-24"
+      >
+        <GridContainer cols={2} gap={8}>
           {RIAPromises.map((promise, idx) => (
             <div
               key={idx}
@@ -184,7 +130,7 @@ export default function AboutContainer() {
               <div className="w-10 h-10 rounded-xl bg-blue-50 border border-blue-100/60 text-[#0a4a83] flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
                 <CheckCircle2 className="w-5 h-5 stroke-[2.5]" />
               </div>
-              <div className="flex flex-col gap-1.5">
+              <div className="flex flex-col gap-1.5 text-left">
                 <h4 className="text-sm font-black text-zinc-950 leading-snug">
                   {promise.title}
                 </h4>
@@ -194,14 +140,14 @@ export default function AboutContainer() {
               </div>
             </div>
           ))}
-        </div>
-      </div>
+        </GridContainer>
+      </SectionContainer>
 
       {/* 5. Why Choose Me Section */}
       <WhyChooseMe />
 
       {/* 6. Let's Get Started CTA Section */}
       <LetsGetStarted />
-    </div>
+    </PageContainer>
   );
 }

@@ -1,28 +1,14 @@
-"use client";
 import React from "react";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
+import { currentMonthGrievances, monthlyDisposalGrievances, annualDisposalGrievances } from "@/constants/data";
+import PageContainer from "@/components/layout/pagecontainer";
+import SectionContainer from "@/components/layout/sectioncontainer";
 
 export default function GrievancesContainer() {
-  const currentMonthData = [
-    { srNo: 1, receivedFrom: "Directly from", pendingLastMonth: 0, received: 0, resolved: 0, totalPending: 0, pendingOver3M: 0, avgResolutionTime: 0 },
-    { srNo: 2, receivedFrom: "SEBI (SCORES)", pendingLastMonth: 0, received: 0, resolved: 0, totalPending: 0, pendingOver3M: 0, avgResolutionTime: 0 },
-    { srNo: 3, receivedFrom: "Other Sources (if any)", pendingLastMonth: 0, received: 0, resolved: 0, totalPending: 0, pendingOver3M: 0, avgResolutionTime: 0 },
-  ];
-
-  const monthlyDisposalData = [
-    { srNo: 1, month: "Jan, 2026", carriedForward: 0, received: 0, resolved: 0, pending: 0 },
-    { srNo: 2, month: "Feb, 2026", carriedForward: 0, received: 0, resolved: 0, pending: 0 },
-    { srNo: 3, month: "Mar, 2026", carriedForward: 0, received: 0, resolved: 0, pending: 0 },
-  ];
-
-  const annualDisposalData = [
-    { srNo: 1, year: "2026", carriedForward: 0, received: 0, resolved: 0, pending: 0 },
-  ];
-
   return (
-    <div className="bg-zinc-50 min-h-screen pt-8 pb-24 font-sans text-zinc-800">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col gap-12 text-left">
+    <PageContainer bg="bg-zinc-50">
+      <SectionContainer className="flex flex-col gap-12" headerClass="mb-0">
         
         {/* Top Header Navigation Banner */}
         <div className="bg-white border border-zinc-200/80 rounded-2xl p-8 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-6 text-left">
@@ -62,7 +48,7 @@ export default function GrievancesContainer() {
                 </tr>
               </thead>
               <tbody className="divide-y divide-zinc-200/60 text-zinc-750">
-                {currentMonthData.map((row) => (
+                {currentMonthGrievances.map((row) => (
                   <tr key={row.srNo} className="hover:bg-white transition-colors">
                     <td className="p-3 text-center text-zinc-500 font-semibold">{row.srNo}</td>
                     <td className="p-3 text-zinc-950 font-black">{row.receivedFrom}</td>
@@ -110,7 +96,7 @@ export default function GrievancesContainer() {
                 </tr>
               </thead>
               <tbody className="divide-y divide-zinc-200/60 text-zinc-750">
-                {monthlyDisposalData.map((row) => (
+                {monthlyDisposalGrievances.map((row) => (
                   <tr key={row.srNo} className="hover:bg-white transition-colors">
                     <td className="p-3 text-center text-zinc-500 font-semibold">{row.srNo}</td>
                     <td className="p-3 text-zinc-950 font-black">{row.month}</td>
@@ -154,7 +140,7 @@ export default function GrievancesContainer() {
                 </tr>
               </thead>
               <tbody className="divide-y divide-zinc-200/60 text-zinc-750">
-                {annualDisposalData.map((row) => (
+                {annualDisposalGrievances.map((row) => (
                   <tr key={row.srNo} className="hover:bg-white transition-colors">
                     <td className="p-3 text-center text-zinc-500 font-semibold">{row.srNo}</td>
                     <td className="p-3 text-zinc-950 font-black">{row.year}</td>
@@ -178,7 +164,7 @@ export default function GrievancesContainer() {
           </div>
         </div>
 
-      </div>
-    </div>
+      </SectionContainer>
+    </PageContainer>
   );
 }

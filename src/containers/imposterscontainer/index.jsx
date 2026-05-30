@@ -1,11 +1,13 @@
-"use client";
 import React from "react";
 import { AlertTriangle, ShieldAlert, CheckCircle, XCircle, Info, Mail, Smartphone } from "lucide-react";
+import PageContainer from "@/components/layout/pagecontainer";
+import SectionContainer from "@/components/layout/sectioncontainer";
+import GridContainer from "@/components/layout/gridcontainer";
 
 export default function ImpostersContainer() {
   return (
-    <div className="bg-zinc-50 min-h-screen pt-8 pb-24 font-sans text-zinc-800">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col gap-12">
+    <PageContainer bg="bg-zinc-50">
+      <SectionContainer className="flex flex-col gap-12" headerClass="mb-0">
         
         {/* Top Header Alert Banner */}
         <div className="bg-red-50 border border-red-100 rounded-2xl p-8 flex flex-col sm:flex-row items-center justify-between gap-6 text-left shadow-sm">
@@ -35,8 +37,7 @@ export default function ImpostersContainer() {
         </div>
 
         {/* Grid: How Fraudsters Trick People & What You Should NOT Do */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
-          
+        <GridContainer cols={2} gap={8} className="text-left">
           {/* How Fraudsters Trick People */}
           <div className="bg-white border border-zinc-200/80 rounded-2xl p-8 shadow-sm flex flex-col gap-5">
             <h3 className="text-base font-black text-zinc-950 flex items-center gap-2">
@@ -102,7 +103,7 @@ export default function ImpostersContainer() {
               </li>
             </ul>
           </div>
-        </div>
+        </GridContainer>
 
         {/* Fee Structure */}
         <div className="bg-white border border-zinc-200/80 rounded-2xl p-8 md:p-10 shadow-sm text-left flex flex-col gap-5">
@@ -110,16 +111,16 @@ export default function ImpostersContainer() {
             <CheckCircle className="w-5 h-5 text-[#0a4a83]" />
             Fee Structure (as per SEBI limits)
           </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs md:text-sm font-bold text-zinc-700">
-            <div className="p-4 bg-zinc-50 border border-zinc-150 rounded-xl flex flex-col gap-1 text-center">
+          <GridContainer cols={2} gap={4} className="text-xs md:text-sm font-bold text-zinc-755 text-center">
+            <div className="p-4 bg-zinc-50 border border-zinc-150 rounded-xl flex flex-col gap-1">
               <span className="text-[10px] text-zinc-450 uppercase tracking-wider">Fixed Fee Structure</span>
               <span className="text-lg font-black text-[#0a4a83]">Maximum ₹1.25 Lakh per year</span>
             </div>
-            <div className="p-4 bg-zinc-50 border border-zinc-150 rounded-xl flex flex-col gap-1 text-center">
+            <div className="p-4 bg-zinc-50 border border-zinc-150 rounded-xl flex flex-col gap-1">
               <span className="text-[10px] text-zinc-450 uppercase tracking-wider">Asset-Based Fee Structure</span>
               <span className="text-lg font-black text-[#0a4a83]">Maximum 2.5% per year</span>
             </div>
-          </div>
+          </GridContainer>
           <div className="p-3.5 bg-red-50/40 border border-red-100 rounded-xl text-center text-xs text-[#e11d48] font-bold">
             ❌ Profit-sharing models are strictly NOT allowed
           </div>
@@ -235,12 +236,12 @@ export default function ImpostersContainer() {
           <h4 className="text-xs font-black uppercase text-[#e11d48] tracking-wider mt-2">
             Be Suspicious If You Receive:
           </h4>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-semibold text-zinc-600">
+          <GridContainer cols={2} gap={3} className="text-xs font-semibold text-zinc-600">
             <div className="p-3 bg-red-50/10 border border-red-100/50 rounded-xl">Payment requests on social media</div>
             <div className="p-3 bg-red-50/10 border border-red-100/50 rounded-xl">Messages claiming urgency or distress</div>
             <div className="p-3 bg-red-50/10 border border-red-100/50 rounded-xl">Unusual or unexpected payment requests</div>
             <div className="p-3 bg-red-50/10 border border-red-100/50 rounded-xl">Messages with different tone/language than usual</div>
-          </div>
+          </GridContainer>
         </div>
 
         {/* UPI Safety */}
@@ -287,7 +288,7 @@ export default function ImpostersContainer() {
           </h4>
         </div>
 
-      </div>
-    </div>
+      </SectionContainer>
+    </PageContainer>
   );
 }

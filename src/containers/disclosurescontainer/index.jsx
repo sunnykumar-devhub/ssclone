@@ -1,32 +1,29 @@
-"use client";
 import React from "react";
 import Link from "next/link";
 import { ExternalLink, ArrowRight } from "lucide-react";
+import { grievances } from "@/constants/data";
+import PageContainer from "@/components/layout/pagecontainer";
+import SectionContainer from "@/components/layout/sectioncontainer";
+import GridContainer from "@/components/layout/gridcontainer";
+import Card from "@/components/ui/card";
 
 export default function DisclosuresContainer() {
-  const grievances = [
-    { count: 0, text: "At the beginning of the month" },
-    { count: 0, text: "Received During the Month" },
-    { count: 0, text: "Resolved during the month" },
-    { count: 0, text: "Pending at the end of the month" },
-  ];
-
   return (
-    <div className="bg-zinc-50 min-h-screen pt-8 pb-24 font-sans text-zinc-700">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col gap-12 text-left">
-        
-        {/* Top Header */}
-        <div className="bg-white border border-zinc-200/80 rounded-2xl p-8 shadow-sm flex flex-col gap-3.5 text-center max-w-3xl mx-auto w-full mb-6">
+    <PageContainer>
+      {/* Top Header */}
+      <SectionContainer className="mb-6" headerClass="mb-0">
+        <div className="bg-white border border-zinc-200/80 rounded-2xl p-8 shadow-sm flex flex-col gap-3.5 text-center max-w-3xl mx-auto w-full">
           <span className="text-xs font-bold uppercase tracking-widest text-[#0a4a83]">Statutory Compliance</span>
           <h1 className="text-3xl md:text-4xl font-black text-zinc-950 tracking-tight">SEBI Registration & Disclosures</h1>
           <p className="text-xs text-zinc-500 font-semibold max-w-xl mx-auto leading-relaxed">
             Official regulatory disclosures, statutory registration details, and grievance redressal frameworks for Sujan Singh.
           </p>
         </div>
+      </SectionContainer>
 
-        {/* 2-Column Sections Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
-          
+      {/* 2-Column Sections Grid */}
+      <SectionContainer className="mb-12" headerClass="mb-0">
+        <GridContainer cols={2} gap={8} className="items-start text-left">
           {/* Left Column */}
           <div className="flex flex-col gap-8">
             {/* Section 1: SEBI Registration Details */}
@@ -175,59 +172,54 @@ export default function DisclosuresContainer() {
               </div>
             </div>
           </div>
-        </div>
+        </GridContainer>
+      </SectionContainer>
 
-        {/* Blue visual progress indicator under disclaimer */}
-        <div className="w-full h-1 bg-zinc-200 rounded-full mt-4 relative overflow-hidden shrink-0">
+      {/* Blue visual progress indicator under disclaimer */}
+      <SectionContainer className="mb-6" headerClass="mb-0">
+        <div className="w-full h-1 bg-zinc-200 rounded-full relative overflow-hidden shrink-0">
           <div className="absolute top-0 left-0 h-full w-[95%] bg-[#0a4a83] rounded-full" />
         </div>
+      </SectionContainer>
 
-        {/* Investment Advisory complaints visual cards */}
-        <div className="mt-6 flex flex-col gap-10 w-full text-center">
-          <div className="flex flex-col gap-2">
-            <h3 className="text-lg font-black text-[#0a4a83] tracking-wide uppercase font-sans">
-              INVESTMENT ADVISORY
-            </h3>
-            <p className="text-xs font-black text-[#0a4a83] tracking-wider uppercase">
-              NUMBER OF COMPLAINTS – FEBRUARY 2026
-            </p>
-          </div>
-
-          {/* 4 Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {grievances.map((item, idx) => (
-              <div
-                key={idx}
-                className="rounded-xl p-8 bg-white border border-zinc-200/80 shadow-sm flex flex-col items-center justify-center gap-4 hover:shadow-md transition-shadow min-h-[160px]"
-              >
-                <span className="text-3xl font-extrabold text-[#0a4a83]">
-                  {item.count}
-                </span>
-                <span className="text-[10.5px] text-zinc-500 font-bold tracking-wide leading-relaxed">
-                  {item.text}
-                </span>
-              </div>
-            ))}
-          </div>
-
-          {/* Bottom blue progress bar */}
-          <div className="w-full h-1 bg-zinc-100 rounded-full mt-4 relative overflow-hidden shrink-0">
-            <div className="absolute top-0 left-0 h-full w-[97%] bg-[#0a4a83] rounded-full" />
-          </div>
-
-          {/* Centered button at bottom */}
-          <div className="pt-4 flex justify-center">
-            <Link
-              href="/disclosures/grievances"
-              className="inline-flex items-center gap-2 border-2 border-[#0a4a83] text-[#0a4a83] hover:bg-[#0a4a83] hover:text-white px-6 py-3 rounded-xl text-xs font-black uppercase tracking-wider transition-all duration-300 shadow-sm hover:shadow-md cursor-pointer active:scale-[0.98]"
-            >
-              View Complete Grievances Status Here
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
+      {/* Investment Advisory complaints visual cards */}
+      <SectionContainer className="text-center" headerClass="mb-10">
+        <div className="flex flex-col gap-2 mb-10">
+          <h3 className="text-lg font-black text-[#0a4a83] tracking-wide uppercase font-sans">
+            INVESTMENT ADVISORY
+          </h3>
+          <p className="text-xs font-black text-[#0a4a83] tracking-wider uppercase">
+            NUMBER OF COMPLAINTS – FEBRUARY 2026
+          </p>
         </div>
 
-      </div>
-    </div>
+        <GridContainer cols={4} gap={6}>
+          {grievances.map((item, idx) => (
+            <Card
+              key={idx}
+              variant="stat"
+              count={item.count}
+              desc={item.text}
+            />
+          ))}
+        </GridContainer>
+
+        {/* Bottom blue progress bar */}
+        <div className="w-full h-1 bg-zinc-100 rounded-full mt-10 relative overflow-hidden shrink-0">
+          <div className="absolute top-0 left-0 h-full w-[97%] bg-[#0a4a83] rounded-full" />
+        </div>
+
+        {/* Centered button at bottom */}
+        <div className="pt-8 flex justify-center">
+          <Link
+            href="/disclosures/grievances"
+            className="inline-flex items-center gap-2 border-2 border-[#0a4a83] text-[#0a4a83] hover:bg-[#0a4a83] hover:text-white px-6 py-3 rounded-xl text-xs font-black uppercase tracking-wider transition-all duration-300 shadow-sm hover:shadow-md cursor-pointer active:scale-[0.98]"
+          >
+            View Complete Grievances Status Here
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
+      </SectionContainer>
+    </PageContainer>
   );
 }
