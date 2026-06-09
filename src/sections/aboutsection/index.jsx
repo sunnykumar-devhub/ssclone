@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import sujanHero from "@/assets/sujan_hero.jpg";
+import { config } from "@/config";
 
 export default function AboutSection() {
   return (
@@ -21,7 +21,7 @@ export default function AboutSection() {
             <div className="relative w-[340px] h-[340px] md:w-[360px] md:h-[360px] rounded-full p-2 border-2 border-dashed border-[#0a4a83]/20 flex items-center justify-center">
               <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-white shadow-lg bg-zinc-50">
                 <Image
-                  src={sujanHero}
+                  src={`${config.cdnUrl}/sujan_hero.jpg`}
                   alt="Sujan Singh portrait"
                   fill
                   sizes="(max-width: 768px) 100vw, 360px"

@@ -1,0 +1,11 @@
+services:
+  sujan-singh-website-frontend:
+    image: harbor.internal.codebuckets.in/sujan-singh-website-frontend/stage
+    container_name: sujan-singh-website-frontend
+    restart: unless-stopped
+    networks:
+      - ingress-network
+
+networks:
+  ingress-network:
+    external: true

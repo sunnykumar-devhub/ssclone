@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import sujanAbout from "@/assets/sujan_about.jpg";
+import { config } from "@/config";
 
 export default function Hero() {
   return (
@@ -36,7 +36,7 @@ export default function Hero() {
 
           <div className="relative w-full max-w-[340px] aspect-[3/4] overflow-hidden rounded-3xl border-4 border-white shadow-xl bg-zinc-50 group">
             <Image
-              src={sujanAbout}
+              src={`${config.cdnUrl}/sujan_about.jpg`}
               alt="Sujan Singh"
               fill
               priority

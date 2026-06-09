@@ -1,10 +1,5 @@
 import { Globe, Search, Compass, ClipboardCheck, Heart, Layers, Calculator, Shield, Target, Scale, Coins, Briefcase, PhoneCall, HelpCircle } from "lucide-react";
-import retirementPlanning from "@/assets/retirement_planning_unique.png";
-import goalPlanning from "@/assets/goal_planning_unique.png";
-import insurancePlanning from "@/assets/insurance_planning_unique.png";
-import emergencyPlanning from "@/assets/emergency_planning_unique.png";
-import taxPlanning from "@/assets/tax_planning_unique.png";
-import riskProfiling from "@/assets/risk_profiling_unique.png";
+import { config } from "../config";
 
 export const credentials = [
   { label: "Advisory Status", val: "SEBI Registered RIA" },
@@ -47,7 +42,7 @@ export const planningServicesDetails = [
   {
     id: 1,
     title: "RETIREMENT PLANNING",
-    img: retirementPlanning,
+    img: `${config.cdnUrl}/retirement_planning_unique.png`,
     alignLeft: true,
     icon: Shield,
     bullets1: [
@@ -65,7 +60,7 @@ export const planningServicesDetails = [
   {
     id: 2,
     title: "GOAL-BASED PLANNING",
-    img: goalPlanning,
+    img: `${config.cdnUrl}/goal_planning_unique.png`,
     alignLeft: false,
     icon: Target,
     bullets1: [
@@ -82,7 +77,7 @@ export const planningServicesDetails = [
   {
     id: 3,
     title: "INSURANCE PLANNING",
-    img: insurancePlanning,
+    img: `${config.cdnUrl}/insurance_planning_unique.png`,
     alignLeft: true,
     icon: Heart,
     bullets1: [
@@ -99,7 +94,7 @@ export const planningServicesDetails = [
   {
     id: 4,
     title: "EMERGENCY FUND PLANNING",
-    img: emergencyPlanning,
+    img: `${config.cdnUrl}/emergency_planning_unique.png`,
     alignLeft: false,
     icon: Scale,
     bullets1: [
@@ -116,7 +111,7 @@ export const planningServicesDetails = [
   {
     id: 5,
     title: "TAX PLANNING",
-    img: taxPlanning,
+    img: `${config.cdnUrl}/tax_planning_unique.png`,
     alignLeft: true,
     icon: Calculator,
     bullets1: [
@@ -134,7 +129,7 @@ export const planningServicesDetails = [
   {
     id: 6,
     title: "RISK PROFILING",
-    img: riskProfiling,
+    img: `${config.cdnUrl}/risk_profiling_unique.png`,
     alignLeft: false,
     icon: Compass,
     bullets1: [

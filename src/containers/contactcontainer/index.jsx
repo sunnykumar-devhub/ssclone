@@ -9,7 +9,7 @@ import GridContainer from "@/components/layout/gridcontainer";
 import Input from "@/components/ui/input";
 import Textarea from "@/components/ui/textarea";
 import Button from "@/components/ui/button";
-import sujanContact from "@/assets/sujan_contact.jpg";
+import { config } from "@/config";
 
 export default function ContactContainer() {
   const [submitLeadForm, { isLoading, isSuccess, isError, reset }] = useSubmitLeadFormMutation();
@@ -116,7 +116,7 @@ export default function ContactContainer() {
             <div className="bg-white border border-zinc-200/80 rounded-2xl p-4 shadow-sm flex flex-col gap-4 relative overflow-hidden group">
               <div className="relative w-full aspect-[4/5] rounded-xl overflow-hidden shadow-sm border border-zinc-100 bg-zinc-50">
                 <Image
-                  src={sujanContact}
+                  src={`${config.cdnUrl}/sujan_contact.jpg`}
                   alt="Sujan Singh Welcoming Portrait"
                   fill
                   priority

@@ -9,7 +9,7 @@ import SectionContainer from "@/components/layout/sectioncontainer";
 import GridContainer from "@/components/layout/gridcontainer";
 import Card from "@/components/ui/card";
 import Badge from "@/components/ui/badge";
-import sujanAbout from "@/assets/sujan_about.jpg";
+import { config } from "@/config";
 
 export default function AboutContainer() {
   return (
@@ -28,7 +28,7 @@ export default function AboutContainer() {
             {/* Main Portrait */}
             <div className="relative w-full max-w-[380px] aspect-[3/4] overflow-hidden rounded-3xl border-4 border-white shadow-xl bg-zinc-50 group">
               <Image
-                src={sujanAbout}
+                src={`${config.cdnUrl}/sujan_about.jpg`}
                 alt="Sujan Singh checkered blazer sitting portrait"
                 fill
                 priority

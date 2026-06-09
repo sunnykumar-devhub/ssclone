@@ -7,15 +7,7 @@ import PageContainer from "@/components/layout/pagecontainer";
 import SectionContainer from "@/components/layout/sectioncontainer";
 import GridContainer from "@/components/layout/gridcontainer";
 import Card from "@/components/ui/card";
-import sujanServices from "@/assets/sujan_services.jpg";
-import portfolioReviews from "@/assets/portfolio_reviews_unique.png";
-import strategicModifications from "@/assets/strategic_modifications_unique.png";
-import continuousSupport from "@/assets/continuous_support_unique.png";
-import strongStocks from "@/assets/strong_stocks_unique.png";
-import researchBacked from "@/assets/research_backed_unique.png";
-import regularTracking from "@/assets/regular_tracking_unique.png";
-import retirementPlanning from "@/assets/retirement_planning_unique.png";
-import goalPlanning from "@/assets/goal_planning_unique.png";
+import { config } from "@/config";
 
 export default function ServicesContainer() {
   return (
@@ -61,7 +53,7 @@ export default function ServicesContainer() {
           <div className="lg:col-span-5 flex justify-center">
             <div className="relative w-full max-w-[340px] aspect-[3/4] rounded-2xl overflow-hidden shadow border border-zinc-150 shrink-0 bg-zinc-50">
               <Image
-                src={sujanServices}
+                src={`${config.cdnUrl}/sujan_services.jpg`}
                 alt="Sujan Singh sitting portrait"
                 fill
                 sizes="(max-width: 768px) 100vw, 340px"
@@ -107,7 +99,7 @@ export default function ServicesContainer() {
             variant="planning"
             icon={Shield}
             title="Regular Portfolio Reviews"
-            img={portfolioReviews}
+            img={`${config.cdnUrl}/portfolio_reviews_unique.png`}
             alignLeft={true}
             bullets1={[
               "Unbiased checks and reviews to keep investments aligned with your goals.",
@@ -122,7 +114,7 @@ export default function ServicesContainer() {
             variant="planning"
             icon={Scale}
             title="Strategic Modifications"
-            img={strategicModifications}
+            img={`${config.cdnUrl}/strategic_modifications_unique.png`}
             alignLeft={false}
             bullets1={[
               "Timely portfolio modifications and rebalancing as markets and personal situations change.",
@@ -137,7 +129,7 @@ export default function ServicesContainer() {
             variant="planning"
             icon={Heart}
             title="Continuous Support"
-            img={continuousSupport}
+            img={`${config.cdnUrl}/continuous_support_unique.png`}
             alignLeft={true}
             bullets1={[
               "Ongoing direct guidance for all your financial decisions throughout the active year.",
@@ -161,7 +153,7 @@ export default function ServicesContainer() {
             variant="planning"
             icon={Calculator}
             title="Fundamentally Strong Stocks"
-            img={strongStocks}
+            img={`${config.cdnUrl}/strong_stocks_unique.png`}
             alignLeft={true}
             bullets1={[
               "Advising fundamentally strong, long-term stocks purely based on company research and financial analysis.",
@@ -176,7 +168,7 @@ export default function ServicesContainer() {
             variant="planning"
             icon={Compass}
             title="Research-Backed & Fiduciary"
-            img={researchBacked}
+            img={`${config.cdnUrl}/research_backed_unique.png`}
             alignLeft={false}
             bullets1={[
               "No conflict of interest, 100% unbiased advisory, and zero commissions.",
@@ -191,7 +183,7 @@ export default function ServicesContainer() {
             variant="planning"
             icon={Target}
             title="Regular Tracking & Reviews"
-            img={regularTracking}
+            img={`${config.cdnUrl}/regular_tracking_unique.png`}
             alignLeft={true}
             bullets1={[
               "Timely updates and active tracking of recommended equity shares.",
@@ -219,7 +211,7 @@ export default function ServicesContainer() {
           <div className="bg-white border border-zinc-200 rounded-2xl p-6 md:p-8 shadow-sm flex flex-col gap-6">
             <div className="relative w-full aspect-[16/10] rounded-xl overflow-hidden shadow-sm border border-zinc-100 bg-zinc-50">
               <Image
-                src={retirementPlanning}
+                src={`${config.cdnUrl}/retirement_planning_unique.png`}
                 alt="Retirement Planning"
                 fill
                 className="object-cover object-center"
@@ -268,7 +260,7 @@ export default function ServicesContainer() {
           <div className="bg-white border border-zinc-200 rounded-2xl p-6 md:p-8 shadow-sm flex flex-col gap-6">
             <div className="relative w-full aspect-[16/10] rounded-xl overflow-hidden shadow-sm border border-zinc-100 bg-zinc-50">
               <Image
-                src={goalPlanning}
+                src={`${config.cdnUrl}/goal_planning_unique.png`}
                 alt="Goal-Based Planning"
                 fill
                 className="object-cover object-center"
