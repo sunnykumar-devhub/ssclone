@@ -1,12 +1,12 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import sujanAbout from "@/assets/sujan_about.jpg";
 
 export default function Hero() {
   return (
     <section className="relative pt-36 pb-20 overflow-hidden bg-white">
       <div className="max-w-7xl mx-auto px-6 md:px-12 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-        {/* Left text column */}
         <div className="lg:col-span-7 flex flex-col gap-6 text-left">
           <h1 className="text-4xl md:text-5xl lg:text-[54px] font-black text-zinc-950 leading-[1.12] tracking-tight font-sans">
             Plan Your Financial Freedom <br />
@@ -28,26 +28,22 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Right graphic column */}
         <div className="lg:col-span-5 relative flex justify-center items-center">
-          {/* Subtle elegant brand colored background shapes */}
           <div className="absolute -top-6 -left-6 w-72 h-72 rounded-full bg-blue-50/70 blur-2xl -z-10 pointer-events-none" />
           <div className="absolute -bottom-8 -right-8 w-60 h-60 rounded-full bg-blue-100/50 blur-3xl -z-10 pointer-events-none" />
           
-          {/* Offset accent border */}
           <div className="absolute inset-0 max-w-[340px] aspect-[3/4] rounded-3xl border-2 border-[#0a4a83]/15 translate-x-4 translate-y-4 -z-10 hidden sm:block" />
 
-          {/* Main Portrait */}
           <div className="relative w-full max-w-[340px] aspect-[3/4] overflow-hidden rounded-3xl border-4 border-white shadow-xl bg-zinc-50 group">
             <Image
-              src="/sujan_about.jpg"
+              src={sujanAbout}
               alt="Sujan Singh"
               fill
               priority
+              sizes="(max-width: 768px) 100vw, 340px"
               className="object-cover object-top hover:scale-[1.05] transition-transform duration-500"
             />
             
-            {/* Floating Glassmorphism Badge */}
             <div className="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-md border border-white/50 rounded-2xl p-3 shadow-md flex items-center gap-3 transform translate-y-1 group-hover:translate-y-0 transition-transform duration-350">
               <div className="w-8 h-8 rounded-lg bg-[#0a4a83] flex items-center justify-center text-white shrink-0">
                 <svg className="w-4.5 h-4.5 stroke-[2.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">

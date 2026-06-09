@@ -1,13 +1,9 @@
 "use client";
-import React, { useEffect } from "react";
+import React from "react";
 import { ShieldAlert, RefreshCw } from "lucide-react";
 import Button from "@/components/ui/button";
 
-export default function Error({ error, reset }) {
-  useEffect(() => {
-    console.error("Application error captured:", error);
-  }, [error]);
-
+export default function Error({ reset }) {
   return (
     <div className="min-h-screen bg-zinc-50 flex items-center justify-center p-6 font-sans text-zinc-700">
       <div className="max-w-md w-full bg-white border border-zinc-200 rounded-2xl p-8 md:p-10 shadow-lg text-center flex flex-col items-center gap-6">

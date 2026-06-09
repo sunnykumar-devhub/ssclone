@@ -40,7 +40,13 @@ export default function Card({
         <div className={`lg:col-span-5 flex justify-center ${alignLeft ? "lg:order-1" : "lg:order-2"}`}>
           {img && (
             <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow border border-zinc-150 shrink-0 bg-zinc-50">
-              <Image src={img} alt={title} fill className="object-cover object-center" />
+              <Image
+                src={img}
+                alt={title}
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                className="object-cover object-center"
+              />
             </div>
           )}
         </div>
