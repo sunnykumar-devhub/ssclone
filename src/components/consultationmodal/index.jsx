@@ -107,7 +107,7 @@ export default function ConsultationModal({ isOpen, onClose }) {
             <p className="text-xs text-zinc-500 max-w-sm font-semibold leading-relaxed mb-6">
               Thank you! Your consultation request has been received successfully. I will review the details and get back to you shortly.
             </p>
-            <div className="flex gap-4 w-full">
+            <div className="grid grid-cols-2 gap-4 w-full">
               <Button variant="outline" size="full" onClick={handleReset}>
                 Book Another
               </Button>
