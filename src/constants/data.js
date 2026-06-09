@@ -1,4 +1,10 @@
 import { Globe, Search, Compass, ClipboardCheck, Heart, Layers, Calculator, Shield, Target, Scale, Coins, Briefcase, PhoneCall, HelpCircle } from "lucide-react";
+import retirementPlanning from "@/assets/retirement_planning_unique.png";
+import goalPlanning from "@/assets/goal_planning_unique.png";
+import insurancePlanning from "@/assets/insurance_planning_unique.png";
+import emergencyPlanning from "@/assets/emergency_planning_unique.png";
+import taxPlanning from "@/assets/tax_planning_unique.png";
+import riskProfiling from "@/assets/risk_profiling_unique.png";
 
 export const credentials = [
   { label: "Advisory Status", val: "SEBI Registered RIA" },
@@ -41,7 +47,7 @@ export const planningServicesDetails = [
   {
     id: 1,
     title: "RETIREMENT PLANNING",
-    img: "/retirement_planning_unique.png",
+    img: retirementPlanning,
     alignLeft: true,
     icon: Shield,
     bullets1: [
@@ -59,7 +65,7 @@ export const planningServicesDetails = [
   {
     id: 2,
     title: "GOAL-BASED PLANNING",
-    img: "/goal_planning_unique.png",
+    img: goalPlanning,
     alignLeft: false,
     icon: Target,
     bullets1: [
@@ -76,7 +82,7 @@ export const planningServicesDetails = [
   {
     id: 3,
     title: "INSURANCE PLANNING",
-    img: "/insurance_planning_unique.png",
+    img: insurancePlanning,
     alignLeft: true,
     icon: Heart,
     bullets1: [
@@ -93,7 +99,7 @@ export const planningServicesDetails = [
   {
     id: 4,
     title: "EMERGENCY FUND PLANNING",
-    img: "/emergency_planning_unique.png",
+    img: emergencyPlanning,
     alignLeft: false,
     icon: Scale,
     bullets1: [
@@ -110,7 +116,7 @@ export const planningServicesDetails = [
   {
     id: 5,
     title: "TAX PLANNING",
-    img: "/tax_planning_unique.png",
+    img: taxPlanning,
     alignLeft: true,
     icon: Calculator,
     bullets1: [
@@ -128,7 +134,7 @@ export const planningServicesDetails = [
   {
     id: 6,
     title: "RISK PROFILING",
-    img: "/risk_profiling_unique.png",
+    img: riskProfiling,
     alignLeft: false,
     icon: Compass,
     bullets1: [

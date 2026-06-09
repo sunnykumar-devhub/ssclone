@@ -9,6 +9,7 @@ import SectionContainer from "@/components/layout/sectioncontainer";
 import GridContainer from "@/components/layout/gridcontainer";
 import Card from "@/components/ui/card";
 import Badge from "@/components/ui/badge";
+import sujanAbout from "@/assets/sujan_about.jpg";
 
 export default function AboutContainer() {
   return (
@@ -27,10 +28,11 @@ export default function AboutContainer() {
             {/* Main Portrait */}
             <div className="relative w-full max-w-[380px] aspect-[3/4] overflow-hidden rounded-3xl border-4 border-white shadow-xl bg-zinc-50 group">
               <Image
-                src="/sujan_about.jpg"
+                src={sujanAbout}
                 alt="Sujan Singh checkered blazer sitting portrait"
                 fill
                 priority
+                sizes="(max-width: 768px) 100vw, 380px"
                 className="object-cover object-top hover:scale-[1.03] transition-transform duration-500"
               />
               

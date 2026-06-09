@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import Image from "next/image";
 import { Shield, Scale, Heart, Calculator, Compass, Target } from "lucide-react";
@@ -6,11 +7,19 @@ import PageContainer from "@/components/layout/pagecontainer";
 import SectionContainer from "@/components/layout/sectioncontainer";
 import GridContainer from "@/components/layout/gridcontainer";
 import Card from "@/components/ui/card";
+import sujanServices from "@/assets/sujan_services.jpg";
+import portfolioReviews from "@/assets/portfolio_reviews_unique.png";
+import strategicModifications from "@/assets/strategic_modifications_unique.png";
+import continuousSupport from "@/assets/continuous_support_unique.png";
+import strongStocks from "@/assets/strong_stocks_unique.png";
+import researchBacked from "@/assets/research_backed_unique.png";
+import regularTracking from "@/assets/regular_tracking_unique.png";
+import retirementPlanning from "@/assets/retirement_planning_unique.png";
+import goalPlanning from "@/assets/goal_planning_unique.png";
 
 export default function ServicesContainer() {
   return (
     <PageContainer>
-      {/* 1. Umbrella of Services Section */}
       <SectionContainer
         badge="My Umbrella of Services"
         subtitle="I offer a wide range of specialized services to help you achieve your financial goals and secure your financial future."
@@ -29,12 +38,10 @@ export default function ServicesContainer() {
         </GridContainer>
       </SectionContainer>
 
-      {/* 2. Importance of Ethics Section */}
       <SectionContainer className="mb-24">
         <div className="bg-white border border-zinc-200 rounded-2xl p-8 md:p-12 shadow-sm hover:shadow-md transition-shadow grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative overflow-hidden">
           <div className="absolute top-0 right-0 w-48 h-48 bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />
 
-          {/* Left Text */}
           <div className="lg:col-span-7 flex flex-col gap-6 text-left">
             <h2 className="text-2xl md:text-3xl font-black text-zinc-950 tracking-tight leading-tight uppercase font-sans">
               THE IMPORTANCE OF ETHICS IN <br /> INVESTMENT ADVISORY
@@ -51,13 +58,13 @@ export default function ServicesContainer() {
             </div>
           </div>
 
-          {/* Right Portrait image */}
           <div className="lg:col-span-5 flex justify-center">
-            <div className="relative w-full max-w-[340px] aspect-[3/4] rounded-2xl overflow-hidden shadow border border-zinc-150 shrink-0">
+            <div className="relative w-full max-w-[340px] aspect-[3/4] rounded-2xl overflow-hidden shadow border border-zinc-150 shrink-0 bg-zinc-50">
               <Image
-                src="/sujan_services.jpg"
+                src={sujanServices}
                 alt="Sujan Singh sitting portrait"
                 fill
+                sizes="(max-width: 768px) 100vw, 340px"
                 className="object-cover object-top"
               />
             </div>
@@ -65,7 +72,6 @@ export default function ServicesContainer() {
         </div>
       </SectionContainer>
 
-      {/* 3. Personalized Financial Planning Header & Cards */}
       <SectionContainer
         title="Personalized Financial Planning"
         subtitle="We provide a complete, personalised, and unbiased approach to help you achieve financial freedom."
@@ -90,7 +96,6 @@ export default function ServicesContainer() {
         </div>
       </SectionContainer>
 
-      {/* 4. Wealth Management Section */}
       <SectionContainer
         title="Wealth Management Service"
         subtitle="This ongoing wealth management service is for clients who have already completed their financial planning with us and want continuous professional guidance."
@@ -102,7 +107,7 @@ export default function ServicesContainer() {
             variant="planning"
             icon={Shield}
             title="Regular Portfolio Reviews"
-            img="/portfolio_reviews_unique.png"
+            img={portfolioReviews}
             alignLeft={true}
             bullets1={[
               "Unbiased checks and reviews to keep investments aligned with your goals.",
@@ -117,7 +122,7 @@ export default function ServicesContainer() {
             variant="planning"
             icon={Scale}
             title="Strategic Modifications"
-            img="/strategic_modifications_unique.png"
+            img={strategicModifications}
             alignLeft={false}
             bullets1={[
               "Timely portfolio modifications and rebalancing as markets and personal situations change.",
@@ -132,7 +137,7 @@ export default function ServicesContainer() {
             variant="planning"
             icon={Heart}
             title="Continuous Support"
-            img="/continuous_support_unique.png"
+            img={continuousSupport}
             alignLeft={true}
             bullets1={[
               "Ongoing direct guidance for all your financial decisions throughout the active year.",
@@ -145,7 +150,6 @@ export default function ServicesContainer() {
         </div>
       </SectionContainer>
 
-      {/* 5. Stock Advisory Section */}
       <SectionContainer
         title="Stock Advisory Service"
         subtitle="Our Stock Advisory Service is designed for clients who wish to allocate a portion of their investments to equities for long-term growth. We focus purely on fundamentally strong businesses."
@@ -157,7 +161,7 @@ export default function ServicesContainer() {
             variant="planning"
             icon={Calculator}
             title="Fundamentally Strong Stocks"
-            img="/strong_stocks_unique.png"
+            img={strongStocks}
             alignLeft={true}
             bullets1={[
               "Advising fundamentally strong, long-term stocks purely based on company research and financial analysis.",
@@ -172,7 +176,7 @@ export default function ServicesContainer() {
             variant="planning"
             icon={Compass}
             title="Research-Backed & Fiduciary"
-            img="/research_backed_unique.png"
+            img={researchBacked}
             alignLeft={false}
             bullets1={[
               "No conflict of interest, 100% unbiased advisory, and zero commissions.",
@@ -187,7 +191,7 @@ export default function ServicesContainer() {
             variant="planning"
             icon={Target}
             title="Regular Tracking & Reviews"
-            img="/regular_tracking_unique.png"
+            img={regularTracking}
             alignLeft={true}
             bullets1={[
               "Timely updates and active tracking of recommended equity shares.",
@@ -200,7 +204,6 @@ export default function ServicesContainer() {
         </div>
       </SectionContainer>
 
-      {/* 6. Who Is This For Section */}
       <SectionContainer
         title="WHO IS THIS FOR?"
         center
@@ -212,13 +215,11 @@ export default function ServicesContainer() {
           <li className="leading-relaxed">• Anyone seeking a structured, unbiased financial roadmap for achieving life goals with confidence.</li>
         </ul>
 
-        {/* Side-by-Side Dual Cards Grid */}
         <GridContainer cols={2} gap={8} className="text-left">
-          {/* Card 1: Retirement Planning */}
           <div className="bg-white border border-zinc-200 rounded-2xl p-6 md:p-8 shadow-sm flex flex-col gap-6">
             <div className="relative w-full aspect-[16/10] rounded-xl overflow-hidden shadow-sm border border-zinc-100 bg-zinc-50">
               <Image
-                src="/retirement_planning_unique.png"
+                src={retirementPlanning}
                 alt="Retirement Planning"
                 fill
                 className="object-cover object-center"
@@ -264,11 +265,10 @@ export default function ServicesContainer() {
             </ul>
           </div>
 
-          {/* Card 2: Goal-Based Planning */}
           <div className="bg-white border border-zinc-200 rounded-2xl p-6 md:p-8 shadow-sm flex flex-col gap-6">
             <div className="relative w-full aspect-[16/10] rounded-xl overflow-hidden shadow-sm border border-zinc-100 bg-zinc-50">
               <Image
-                src="/goal_planning_unique.png"
+                src={goalPlanning}
                 alt="Goal-Based Planning"
                 fill
                 className="object-cover object-center"

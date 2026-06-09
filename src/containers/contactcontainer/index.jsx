@@ -1,66 +1,99 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
-import { Mail, Phone, MapPin, CheckCircle2, MessageSquare, Clock, Calendar, ShieldCheck } from "lucide-react";
-import useForm from "@/hooks/useform";
+import { Mail, Phone, MapPin, CheckCircle2, MessageSquare, Clock, Calendar, ShieldCheck, AlertCircle } from "lucide-react";
+import { useSubmitLeadFormMutation } from "../../store/features/leads/leadsApi";
 import PageContainer from "@/components/layout/pagecontainer";
 import SectionContainer from "@/components/layout/sectioncontainer";
 import GridContainer from "@/components/layout/gridcontainer";
 import Input from "@/components/ui/input";
 import Textarea from "@/components/ui/textarea";
 import Button from "@/components/ui/button";
+import sujanContact from "@/assets/sujan_contact.jpg";
 
 export default function ContactContainer() {
-  const initialValues = {
+  const [submitLeadForm, { isLoading, isSuccess, isError, reset }] = useSubmitLeadFormMutation();
+  const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
-    query: "",
     date: "",
     time: "",
+    query: "",
+  });
+  const [errors, setErrors] = useState({});
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+    if (errors[name]) {
+      setErrors((prev) => {
+        const next = { ...prev };
+        delete next[name];
+        return next;
+      });
+    }
   };
 
-  const validate = (values) => {
-    const errors = {};
-    if (!values.name.trim()) errors.name = "Name is required";
+  const handleReset = () => {
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+      date: "",
+      time: "",
+      query: "",
+    });
+    setErrors({});
+    reset();
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const validationErrors = {};
+    if (!formData.name.trim()) {
+      validationErrors.name = "Name is required";
+    }
     
-    if (!values.email.trim()) {
-      errors.email = "Email is required";
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email)) {
-      errors.email = "Please enter a valid email address";
+    if (!formData.email.trim()) {
+      validationErrors.email = "Email is required";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      validationErrors.email = "Please enter a valid email address";
     }
 
-    if (!values.phone.trim()) {
-      errors.phone = "Phone number is required";
+    if (!formData.phone.trim()) {
+      validationErrors.phone = "Phone number is required";
     } else {
-      const sanitizedPhone = values.phone.replace(/[\s\-\(\)\+]/g, "").replace(/^91/, "");
+      const sanitizedPhone = formData.phone.replace(/[\s\-\(\)\+]/g, "").replace(/^91/, "");
       if (!/^[6-9]\d{9}$/.test(sanitizedPhone)) {
-        errors.phone = "Please enter a valid 10-digit Indian mobile number";
+        validationErrors.phone = "Please enter a valid 10-digit Indian mobile number";
       }
     }
 
-    if (!values.query.trim()) errors.query = "Please enter your query or area of interest";
-    return errors;
-  };
+    if (!formData.query.trim()) {
+      validationErrors.query = "Please enter your query or area of interest";
+    }
+    
+    setErrors(validationErrors);
 
-  const onSubmit = (values) => {
-    return new Promise((resolve) => {
-      setTimeout(resolve, 4000);
-    });
+    if (Object.keys(validationErrors).length === 0) {
+      try {
+        await submitLeadForm({
+          formType: "contact",
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          date: formData.date,
+          time: formData.time,
+          query: formData.query,
+        }).unwrap();
+      } catch (err) {
+      }
+    }
   };
-
-  const {
-    values,
-    errors,
-    isSubmitting,
-    isSuccess,
-    handleChange,
-    handleSubmit,
-  } = useForm({ initialValues, validate, onSubmit });
 
   return (
     <PageContainer>
-      {/* Page Header */}
       <SectionContainer className="mb-16 relative" headerClass="mb-0">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-80 h-80 bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />
         <div className="text-center max-w-3xl mx-auto flex flex-col items-center">
@@ -77,20 +110,17 @@ export default function ContactContainer() {
         </div>
       </SectionContainer>
 
-      {/* Grid Layout */}
       <SectionContainer>
         <GridContainer cols={12} gap={12} className="items-start">
-          {/* Contact Info & Details Panel */}
           <div className="lg:col-span-5 flex flex-col gap-8 text-left">
-            
-            {/* Welcome Portrait Card */}
             <div className="bg-white border border-zinc-200/80 rounded-2xl p-4 shadow-sm flex flex-col gap-4 relative overflow-hidden group">
               <div className="relative w-full aspect-[4/5] rounded-xl overflow-hidden shadow-sm border border-zinc-100 bg-zinc-50">
                 <Image
-                  src="/sujan_contact.jpg"
+                  src={sujanContact}
                   alt="Sujan Singh Welcoming Portrait"
                   fill
                   priority
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 400px"
                   className="object-cover object-top hover:scale-[1.02] transition-transform duration-500"
                 />
               </div>
@@ -103,7 +133,6 @@ export default function ContactContainer() {
               </div>
             </div>
 
-            {/* Main Contact Card */}
             <div className="bg-white border border-zinc-200/80 rounded-2xl p-8 shadow-sm flex flex-col gap-6">
               <h2 className="text-lg font-black text-zinc-950 uppercase tracking-wider border-b border-zinc-100 pb-4">
                 Contact Me
@@ -148,7 +177,6 @@ export default function ContactContainer() {
               </div>
             </div>
 
-            {/* Business Hours Card */}
             <div className="bg-white border border-zinc-200/80 rounded-2xl p-8 shadow-sm flex flex-col gap-5">
               <div className="flex items-center gap-3 border-b border-zinc-100 pb-4">
                 <div className="w-8 h-8 rounded-lg bg-zinc-50 border border-zinc-200 flex items-center justify-center text-zinc-700 shrink-0">
@@ -175,7 +203,6 @@ export default function ContactContainer() {
               </div>
             </div>
 
-            {/* Stay Connected */}
             <div className="bg-white border border-zinc-200/80 rounded-2xl p-8 shadow-sm flex flex-col gap-5">
               <h3 className="text-sm font-black text-zinc-950 uppercase tracking-wider border-b border-zinc-100 pb-4">
                 Stay Connected
@@ -221,23 +248,31 @@ export default function ContactContainer() {
                 </a>
               </div>
             </div>
-
           </div>
 
-          {/* Secure Form Panel */}
           <div className="lg:col-span-7 flex flex-col gap-6">
             <div className="bg-white border border-zinc-200/80 rounded-2xl p-8 md:p-10 shadow-sm relative overflow-hidden">
               <div className="absolute top-0 right-0 w-24 h-24 bg-blue-500/5 rounded-full blur-2xl pointer-events-none" />
-              
+
+              {isError && (
+                <div className="mb-6 p-4 bg-red-50 border border-red-100 rounded-xl text-red-650 text-xs font-semibold flex items-start gap-3">
+                  <AlertCircle className="w-5 h-5 shrink-0" />
+                  <span>Something went wrong. Please try again.</span>
+                </div>
+              )}
+
               {isSuccess ? (
                 <div className="py-20 flex flex-col items-center justify-center text-center gap-4 animate-fade-in">
                   <div className="w-16 h-16 rounded-full bg-blue-50 border border-blue-100 flex items-center justify-center text-[#0a4a83]">
                     <CheckCircle2 className="w-10 h-10 animate-bounce" />
                   </div>
                   <h3 className="text-2xl font-black text-zinc-950">Thank You!</h3>
-                  <p className="text-xs text-zinc-500 max-w-sm font-semibold leading-relaxed">
-                    Your message has been received successfully. As a SEBI Registered Investment Adviser, I strictly safeguard your information. I will get back to you shortly!
+                  <p className="text-xs text-zinc-500 max-w-sm font-semibold leading-relaxed mb-6">
+                    Your consultation request has been received successfully. I strictly safeguard your information and will get back to you shortly!
                   </p>
+                  <Button onClick={handleReset} variant="secondary">
+                    Submit Another Request
+                  </Button>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="flex flex-col gap-6 text-left">
@@ -245,7 +280,7 @@ export default function ContactContainer() {
                     <div className="flex items-center gap-2">
                       <Calendar className="w-5 h-5 text-[#0a4a83]" />
                       <h3 className="text-lg font-black text-zinc-950 uppercase tracking-wider">
-                        Schedule a Consultation
+                        SCHEDULE A CONSULTATION
                       </h3>
                     </div>
                     <p className="text-xs text-zinc-500 font-semibold leading-relaxed">
@@ -255,7 +290,7 @@ export default function ContactContainer() {
 
                   <div className="flex flex-col gap-1.5 mt-2">
                     <h4 className="text-xs font-bold text-zinc-800 uppercase tracking-wide">
-                      Get in Touch with Me
+                      GET IN TOUCH WITH ME
                     </h4>
                     <p className="text-[11px] text-zinc-450 font-medium">
                       Please fill out the form below, and I will get back to you as soon as possible. Whether you have questions or need personalized advice, I’m here to assist you.
@@ -268,7 +303,7 @@ export default function ContactContainer() {
                       id="name"
                       name="name"
                       required
-                      value={values.name}
+                      value={formData.name}
                       onChange={handleChange}
                       placeholder="e.g. Sujan Singh"
                       error={errors.name}
@@ -281,7 +316,7 @@ export default function ContactContainer() {
                         name="email"
                         type="email"
                         required
-                        value={values.email}
+                        value={formData.email}
                         onChange={handleChange}
                         placeholder="e.g. sujan@gmail.com"
                         error={errors.email}
@@ -292,7 +327,7 @@ export default function ContactContainer() {
                         name="phone"
                         type="tel"
                         required
-                        value={values.phone}
+                        value={formData.phone}
                         onChange={handleChange}
                         placeholder="e.g. +91 88021 08844"
                         error={errors.phone}
@@ -305,7 +340,7 @@ export default function ContactContainer() {
                         id="date"
                         name="date"
                         type="date"
-                        value={values.date}
+                        value={formData.date}
                         onChange={handleChange}
                       />
                       <Input
@@ -313,7 +348,7 @@ export default function ContactContainer() {
                         id="time"
                         name="time"
                         type="time"
-                        value={values.time}
+                        value={formData.time}
                         onChange={handleChange}
                       />
                     </GridContainer>
@@ -323,21 +358,20 @@ export default function ContactContainer() {
                       id="query"
                       name="query"
                       required
-                      value={values.query}
+                      value={formData.query}
                       onChange={handleChange}
                       placeholder="Outline your requirements, e.g. retirement planning, wealth advisory, portfolio review..."
                       error={errors.query}
                     />
                   </div>
 
-                  <Button type="submit" loading={isSubmitting} icon={ShieldCheck} size="full" className="mt-4">
-                    Submit Request & Schedule
+                  <Button type="submit" loading={isLoading} icon={ShieldCheck} size="full" className="mt-4">
+                    SUBMIT REQUEST & SCHEDULE
                   </Button>
                 </form>
               )}
             </div>
 
-            {/* Fiduciary Commitment & Trust Card to fill the empty space */}
             <div className="bg-white border border-zinc-200/80 rounded-2xl p-8 shadow-sm flex flex-col gap-6 mt-8">
               <h3 className="text-sm font-black text-zinc-950 uppercase tracking-wider border-b border-zinc-100 pb-4 flex items-center gap-2">
                 <ShieldCheck className="w-5 h-5 text-[#0a4a83] shrink-0" />
@@ -378,7 +412,6 @@ export default function ContactContainer() {
         </GridContainer>
       </SectionContainer>
 
-      {/* Why Reach Out? Cards Section */}
       <SectionContainer title="Why Reach Out?" center className="mt-24" headerClass="mb-12">
         <GridContainer cols={3} gap={8}>
           <div className="bg-white border border-zinc-200/80 rounded-2xl p-8 shadow-sm flex flex-col gap-4 text-left">
